@@ -1,0 +1,850 @@
+2025-10-01 02:11:50,367 - distributed.protocol.pickle - ERROR - Failed to serialize <xarray.Dataset> Size: 3GB
+Dimensions:    (time: 744, latitude: 721, longitude: 1440)
+Coordinates:
+  * latitude   (latitude) float64 6kB 90.0 89.75 89.5 ... -89.5 -89.75 -90.0
+  * longitude  (longitude) float64 12kB 0.0 0.25 0.5 0.75 ... 359.2 359.5 359.8
+  * time       (time) datetime64[ns] 6kB 1983-12-01 ... 1983-12-31T23:00:00
+Data variables:
+    VAR_2T     (time, latitude, longitude) float32 3GB dask.array<chunksize=(27, 139, 277), meta=np.ndarray>
+    utc_date   (time) int32 3kB dask.array<chunksize=(744,), meta=np.ndarray>
+Attributes: (12/24)
+    DATA_SOURCE:                     ECMWF: https://cds.climate.copernicus.eu...
+    NETCDF_CONVERSION:               CISL RDA: Conversion from ECMWF GRIB1 da...
+    NETCDF_VERSION:                  4.6.1
+    CONVERSION_PLATFORM:             Linux casper02 3.10.0-693.21.1.el7.x86_6...
+    CONVERSION_DATE:                 Tue Jun  4 23:10:25 MDT 2019
+    Conventions:                     CF-1.6
+    ...                              ...
+    intake_esm_attrs:year:           1983
+    intake_esm_attrs:month:          12
+    intake_esm_attrs:format:         nc
+    intake_esm_attrs:frequency:      hourly
+    intake_esm_attrs:path:           https://data.rda.ucar.edu/d633000/e5.ope...
+    intake_esm_attrs:_data_format_:  netcdf.
+Traceback (most recent call last):
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/distributed/protocol/pickle.py", line 63, in dumps
+    result = pickle.dumps(x, **dump_kwargs)
+TypeError: cannot pickle 'module' object
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/distributed/protocol/pickle.py", line 68, in dumps
+    pickler.dump(x)
+    ~~~~~~~~~~~~^^^
+TypeError: cannot pickle 'module' object
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/distributed/protocol/pickle.py", line 80, in dumps
+    result = cloudpickle.dumps(x, **dump_kwargs)
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/cloudpickle/cloudpickle.py", line 1537, in dumps
+    cp.dump(obj)
+    ~~~~~~~^^^^^
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/cloudpickle/cloudpickle.py", line 1303, in dump
+    return super().dump(obj)
+           ~~~~~~~~~~~~^^^^^
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/h5py/_hl/base.py", line 369, in __getnewargs__
+    raise TypeError("h5py objects cannot be pickled")
+TypeError: h5py objects cannot be pickled
+2025-10-01 02:11:50,370 - distributed.protocol.pickle - ERROR - Failed to serialize <xarray.Dataset> Size: 3GB
+Dimensions:    (time: 744, latitude: 721, longitude: 1440)
+Coordinates:
+  * latitude   (latitude) float64 6kB 90.0 89.75 89.5 ... -89.5 -89.75 -90.0
+  * longitude  (longitude) float64 12kB 0.0 0.25 0.5 0.75 ... 359.2 359.5 359.8
+  * time       (time) datetime64[ns] 6kB 1944-08-01 ... 1944-08-31T23:00:00
+Data variables:
+    VAR_2T     (time, latitude, longitude) float32 3GB dask.array<chunksize=(27, 139, 277), meta=np.ndarray>
+    utc_date   (time) int32 3kB dask.array<chunksize=(744,), meta=np.ndarray>
+Attributes: (12/24)
+    DATA_SOURCE:                     ECMWF: https://cds.climate.copernicus.eu...
+    NETCDF_CONVERSION:               CISL RDA: Conversion from ECMWF GRIB1 da...
+    NETCDF_VERSION:                  4.8.1
+    CONVERSION_PLATFORM:             Linux r14i4n26 4.12.14-95.51-default #1 ...
+    CONVERSION_DATE:                 Fri May  5 08:05:04 MDT 2023
+    Conventions:                     CF-1.6
+    ...                              ...
+    intake_esm_attrs:year:           1944
+    intake_esm_attrs:month:          8
+    intake_esm_attrs:format:         nc
+    intake_esm_attrs:frequency:      hourly
+    intake_esm_attrs:path:           https://data.rda.ucar.edu/d633000/e5.ope...
+    intake_esm_attrs:_data_format_:  netcdf.
+Traceback (most recent call last):
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/distributed/protocol/pickle.py", line 63, in dumps
+    result = pickle.dumps(x, **dump_kwargs)
+TypeError: cannot pickle 'module' object
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/distributed/protocol/pickle.py", line 68, in dumps
+    pickler.dump(x)
+    ~~~~~~~~~~~~^^^
+TypeError: cannot pickle 'module' object
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/distributed/protocol/pickle.py", line 80, in dumps
+    result = cloudpickle.dumps(x, **dump_kwargs)
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/cloudpickle/cloudpickle.py", line 1537, in dumps
+    cp.dump(obj)
+    ~~~~~~~^^^^^
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/cloudpickle/cloudpickle.py", line 1303, in dump
+    return super().dump(obj)
+           ~~~~~~~~~~~~^^^^^
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/h5py/_hl/base.py", line 369, in __getnewargs__
+    raise TypeError("h5py objects cannot be pickled")
+TypeError: h5py objects cannot be pickled
+2025-10-01 02:11:50,373 - distributed.protocol.pickle - ERROR - Failed to serialize <xarray.Dataset> Size: 3GB
+Dimensions:    (time: 720, latitude: 721, longitude: 1440)
+Coordinates:
+  * latitude   (latitude) float64 6kB 90.0 89.75 89.5 ... -89.5 -89.75 -90.0
+  * longitude  (longitude) float64 12kB 0.0 0.25 0.5 0.75 ... 359.2 359.5 359.8
+  * time       (time) datetime64[ns] 6kB 1982-04-01 ... 1982-04-30T23:00:00
+Data variables:
+    VAR_2T     (time, latitude, longitude) float32 3GB dask.array<chunksize=(27, 139, 279), meta=np.ndarray>
+    utc_date   (time) int32 3kB dask.array<chunksize=(720,), meta=np.ndarray>
+Attributes: (12/24)
+    DATA_SOURCE:                     ECMWF: https://cds.climate.copernicus.eu...
+    NETCDF_CONVERSION:               CISL RDA: Conversion from ECMWF GRIB1 da...
+    NETCDF_VERSION:                  4.6.1
+    CONVERSION_PLATFORM:             Linux casper10 3.10.0-693.21.1.el7.x86_6...
+    CONVERSION_DATE:                 Tue May 28 22:53:12 MDT 2019
+    Conventions:                     CF-1.6
+    ...                              ...
+    intake_esm_attrs:year:           1982
+    intake_esm_attrs:month:          4
+    intake_esm_attrs:format:         nc
+    intake_esm_attrs:frequency:      hourly
+    intake_esm_attrs:path:           https://data.rda.ucar.edu/d633000/e5.ope...
+    intake_esm_attrs:_data_format_:  netcdf.
+Traceback (most recent call last):
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/distributed/protocol/pickle.py", line 63, in dumps
+    result = pickle.dumps(x, **dump_kwargs)
+TypeError: cannot pickle 'module' object
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/distributed/protocol/pickle.py", line 68, in dumps
+    pickler.dump(x)
+    ~~~~~~~~~~~~^^^
+TypeError: cannot pickle 'module' object
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/distributed/protocol/pickle.py", line 80, in dumps
+    result = cloudpickle.dumps(x, **dump_kwargs)
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/cloudpickle/cloudpickle.py", line 1537, in dumps
+    cp.dump(obj)
+    ~~~~~~~^^^^^
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/cloudpickle/cloudpickle.py", line 1303, in dump
+    return super().dump(obj)
+           ~~~~~~~~~~~~^^^^^
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/h5py/_hl/base.py", line 369, in __getnewargs__
+    raise TypeError("h5py objects cannot be pickled")
+TypeError: h5py objects cannot be pickled
+2025-10-01 02:11:50,375 - distributed.protocol.pickle - ERROR - Failed to serialize <xarray.Dataset> Size: 3GB
+Dimensions:    (time: 720, latitude: 721, longitude: 1440)
+Coordinates:
+  * latitude   (latitude) float64 6kB 90.0 89.75 89.5 ... -89.5 -89.75 -90.0
+  * longitude  (longitude) float64 12kB 0.0 0.25 0.5 0.75 ... 359.2 359.5 359.8
+  * time       (time) datetime64[ns] 6kB 1944-06-01 ... 1944-06-30T23:00:00
+Data variables:
+    VAR_2T     (time, latitude, longitude) float32 3GB dask.array<chunksize=(27, 139, 279), meta=np.ndarray>
+    utc_date   (time) int32 3kB dask.array<chunksize=(720,), meta=np.ndarray>
+Attributes: (12/24)
+    DATA_SOURCE:                     ECMWF: https://cds.climate.copernicus.eu...
+    NETCDF_CONVERSION:               CISL RDA: Conversion from ECMWF GRIB1 da...
+    NETCDF_VERSION:                  4.8.1
+    CONVERSION_PLATFORM:             Linux r8i1n6 4.12.14-95.51-default #1 SM...
+    CONVERSION_DATE:                 Fri May  5 17:34:35 MDT 2023
+    Conventions:                     CF-1.6
+    ...                              ...
+    intake_esm_attrs:year:           1944
+    intake_esm_attrs:month:          6
+    intake_esm_attrs:format:         nc
+    intake_esm_attrs:frequency:      hourly
+    intake_esm_attrs:path:           https://data.rda.ucar.edu/d633000/e5.ope...
+    intake_esm_attrs:_data_format_:  netcdf.
+Traceback (most recent call last):
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/distributed/protocol/pickle.py", line 63, in dumps
+    result = pickle.dumps(x, **dump_kwargs)
+TypeError: cannot pickle 'module' object
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/distributed/protocol/pickle.py", line 68, in dumps
+    pickler.dump(x)
+    ~~~~~~~~~~~~^^^
+TypeError: cannot pickle 'module' object
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/distributed/protocol/pickle.py", line 80, in dumps
+    result = cloudpickle.dumps(x, **dump_kwargs)
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/cloudpickle/cloudpickle.py", line 1537, in dumps
+    cp.dump(obj)
+    ~~~~~~~^^^^^
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/cloudpickle/cloudpickle.py", line 1303, in dump
+    return super().dump(obj)
+           ~~~~~~~~~~~~^^^^^
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/h5py/_hl/base.py", line 369, in __getnewargs__
+    raise TypeError("h5py objects cannot be pickled")
+TypeError: h5py objects cannot be pickled
+2025-10-01 02:11:50,378 - distributed.protocol.pickle - ERROR - Failed to serialize <xarray.Dataset> Size: 3GB
+Dimensions:    (time: 744, latitude: 721, longitude: 1440)
+Coordinates:
+  * latitude   (latitude) float64 6kB 90.0 89.75 89.5 ... -89.5 -89.75 -90.0
+  * longitude  (longitude) float64 12kB 0.0 0.25 0.5 0.75 ... 359.2 359.5 359.8
+  * time       (time) datetime64[ns] 6kB 2011-05-01 ... 2011-05-31T23:00:00
+Data variables:
+    VAR_2T     (time, latitude, longitude) float32 3GB dask.array<chunksize=(27, 139, 277), meta=np.ndarray>
+    utc_date   (time) int32 3kB dask.array<chunksize=(744,), meta=np.ndarray>
+Attributes: (12/24)
+    DATA_SOURCE:                     ECMWF: https://cds.climate.copernicus.eu...
+    NETCDF_CONVERSION:               CISL RDA: Conversion from ECMWF GRIB1 da...
+    NETCDF_VERSION:                  4.6.1
+    CONVERSION_PLATFORM:             Linux casper18 3.10.0-693.21.1.el7.x86_6...
+    CONVERSION_DATE:                 Sat Aug 24 07:10:31 MDT 2019
+    Conventions:                     CF-1.6
+    ...                              ...
+    intake_esm_attrs:year:           2011
+    intake_esm_attrs:month:          5
+    intake_esm_attrs:format:         nc
+    intake_esm_attrs:frequency:      hourly
+    intake_esm_attrs:path:           https://data.rda.ucar.edu/d633000/e5.ope...
+    intake_esm_attrs:_data_format_:  netcdf.
+Traceback (most recent call last):
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/distributed/protocol/pickle.py", line 63, in dumps
+    result = pickle.dumps(x, **dump_kwargs)
+TypeError: cannot pickle 'module' object
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/distributed/protocol/pickle.py", line 68, in dumps
+    pickler.dump(x)
+    ~~~~~~~~~~~~^^^
+TypeError: cannot pickle 'module' object
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/distributed/protocol/pickle.py", line 80, in dumps
+    result = cloudpickle.dumps(x, **dump_kwargs)
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/cloudpickle/cloudpickle.py", line 1537, in dumps
+    cp.dump(obj)
+    ~~~~~~~^^^^^
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/cloudpickle/cloudpickle.py", line 1303, in dump
+    return super().dump(obj)
+           ~~~~~~~~~~~~^^^^^
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/h5py/_hl/base.py", line 369, in __getnewargs__
+    raise TypeError("h5py objects cannot be pickled")
+TypeError: h5py objects cannot be pickled
+2025-10-01 02:11:50,380 - distributed.protocol.pickle - ERROR - Failed to serialize <xarray.Dataset> Size: 3GB
+Dimensions:    (time: 672, latitude: 721, longitude: 1440)
+Coordinates:
+  * latitude   (latitude) float64 6kB 90.0 89.75 89.5 ... -89.5 -89.75 -90.0
+  * longitude  (longitude) float64 12kB 0.0 0.25 0.5 0.75 ... 359.2 359.5 359.8
+  * time       (time) datetime64[ns] 5kB 2011-02-01 ... 2011-02-28T23:00:00
+Data variables:
+    VAR_2T     (time, latitude, longitude) float32 3GB dask.array<chunksize=(26, 142, 284), meta=np.ndarray>
+    utc_date   (time) int32 3kB dask.array<chunksize=(672,), meta=np.ndarray>
+Attributes: (12/24)
+    DATA_SOURCE:                     ECMWF: https://cds.climate.copernicus.eu...
+    NETCDF_CONVERSION:               CISL RDA: Conversion from ECMWF GRIB1 da...
+    NETCDF_VERSION:                  4.6.3
+    CONVERSION_PLATFORM:             Linux r12i4n6 4.12.14-94.41-default #1 S...
+    CONVERSION_DATE:                 Fri Aug 23 11:06:56 MDT 2019
+    Conventions:                     CF-1.6
+    ...                              ...
+    intake_esm_attrs:year:           2011
+    intake_esm_attrs:month:          2
+    intake_esm_attrs:format:         nc
+    intake_esm_attrs:frequency:      hourly
+    intake_esm_attrs:path:           https://data.rda.ucar.edu/d633000/e5.ope...
+    intake_esm_attrs:_data_format_:  netcdf.
+Traceback (most recent call last):
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/distributed/protocol/pickle.py", line 63, in dumps
+    result = pickle.dumps(x, **dump_kwargs)
+TypeError: cannot pickle 'module' object
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/distributed/protocol/pickle.py", line 68, in dumps
+    pickler.dump(x)
+    ~~~~~~~~~~~~^^^
+TypeError: cannot pickle 'module' object
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/distributed/protocol/pickle.py", line 80, in dumps
+    result = cloudpickle.dumps(x, **dump_kwargs)
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/cloudpickle/cloudpickle.py", line 1537, in dumps
+    cp.dump(obj)
+    ~~~~~~~^^^^^
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/cloudpickle/cloudpickle.py", line 1303, in dump
+    return super().dump(obj)
+           ~~~~~~~~~~~~^^^^^
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/h5py/_hl/base.py", line 369, in __getnewargs__
+    raise TypeError("h5py objects cannot be pickled")
+TypeError: h5py objects cannot be pickled
+2025-10-01 02:11:50,383 - distributed.protocol.pickle - ERROR - Failed to serialize <xarray.Dataset> Size: 3GB
+Dimensions:    (time: 672, latitude: 721, longitude: 1440)
+Coordinates:
+  * latitude   (latitude) float64 6kB 90.0 89.75 89.5 ... -89.5 -89.75 -90.0
+  * longitude  (longitude) float64 12kB 0.0 0.25 0.5 0.75 ... 359.2 359.5 359.8
+  * time       (time) datetime64[ns] 5kB 2019-02-01 ... 2019-02-28T23:00:00
+Data variables:
+    VAR_2T     (time, latitude, longitude) float32 3GB dask.array<chunksize=(26, 142, 284), meta=np.ndarray>
+    utc_date   (time) int32 3kB dask.array<chunksize=(672,), meta=np.ndarray>
+Attributes: (12/24)
+    DATA_SOURCE:                     ECMWF: https://cds.climate.copernicus.eu...
+    NETCDF_CONVERSION:               CISL RDA: Conversion from ECMWF GRIB1 da...
+    NETCDF_VERSION:                  4.6.3
+    CONVERSION_PLATFORM:             Linux r8i7n29 4.12.14-94.41-default #1 S...
+    CONVERSION_DATE:                 Tue Sep 10 16:53:48 MDT 2019
+    Conventions:                     CF-1.6
+    ...                              ...
+    intake_esm_attrs:year:           2019
+    intake_esm_attrs:month:          2
+    intake_esm_attrs:format:         nc
+    intake_esm_attrs:frequency:      hourly
+    intake_esm_attrs:path:           https://data.rda.ucar.edu/d633000/e5.ope...
+    intake_esm_attrs:_data_format_:  netcdf.
+Traceback (most recent call last):
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/distributed/protocol/pickle.py", line 63, in dumps
+    result = pickle.dumps(x, **dump_kwargs)
+TypeError: cannot pickle 'module' object
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/distributed/protocol/pickle.py", line 68, in dumps
+    pickler.dump(x)
+    ~~~~~~~~~~~~^^^
+TypeError: cannot pickle 'module' object
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/distributed/protocol/pickle.py", line 80, in dumps
+    result = cloudpickle.dumps(x, **dump_kwargs)
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/cloudpickle/cloudpickle.py", line 1537, in dumps
+    cp.dump(obj)
+    ~~~~~~~^^^^^
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/cloudpickle/cloudpickle.py", line 1303, in dump
+    return super().dump(obj)
+           ~~~~~~~~~~~~^^^^^
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/h5py/_hl/base.py", line 369, in __getnewargs__
+    raise TypeError("h5py objects cannot be pickled")
+TypeError: h5py objects cannot be pickled
+2025-10-01 02:11:50,386 - distributed.protocol.pickle - ERROR - Failed to serialize <xarray.Dataset> Size: 3GB
+Dimensions:    (time: 672, latitude: 721, longitude: 1440)
+Coordinates:
+  * latitude   (latitude) float64 6kB 90.0 89.75 89.5 ... -89.5 -89.75 -90.0
+  * longitude  (longitude) float64 12kB 0.0 0.25 0.5 0.75 ... 359.2 359.5 359.8
+  * time       (time) datetime64[ns] 5kB 1955-02-01 ... 1955-02-28T23:00:00
+Data variables:
+    VAR_2T     (time, latitude, longitude) float32 3GB dask.array<chunksize=(26, 142, 284), meta=np.ndarray>
+    utc_date   (time) int32 3kB dask.array<chunksize=(672,), meta=np.ndarray>
+Attributes: (12/24)
+    DATA_SOURCE:                     ECMWF: https://cds.climate.copernicus.eu...
+    NETCDF_CONVERSION:               CISL RDA: Conversion from ECMWF GRIB1 da...
+    NETCDF_VERSION:                  4.8.1
+    CONVERSION_PLATFORM:             Linux r14i5n27 4.12.14-95.51-default #1 ...
+    CONVERSION_DATE:                 Fri Mar 31 12:37:40 MDT 2023
+    Conventions:                     CF-1.6
+    ...                              ...
+    intake_esm_attrs:year:           1955
+    intake_esm_attrs:month:          2
+    intake_esm_attrs:format:         nc
+    intake_esm_attrs:frequency:      hourly
+    intake_esm_attrs:path:           https://data.rda.ucar.edu/d633000/e5.ope...
+    intake_esm_attrs:_data_format_:  netcdf.
+Traceback (most recent call last):
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/distributed/protocol/pickle.py", line 63, in dumps
+    result = pickle.dumps(x, **dump_kwargs)
+TypeError: cannot pickle 'module' object
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/distributed/protocol/pickle.py", line 68, in dumps
+    pickler.dump(x)
+    ~~~~~~~~~~~~^^^
+TypeError: cannot pickle 'module' object
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/distributed/protocol/pickle.py", line 80, in dumps
+    result = cloudpickle.dumps(x, **dump_kwargs)
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/cloudpickle/cloudpickle.py", line 1537, in dumps
+    cp.dump(obj)
+    ~~~~~~~^^^^^
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/cloudpickle/cloudpickle.py", line 1303, in dump
+    return super().dump(obj)
+           ~~~~~~~~~~~~^^^^^
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/h5py/_hl/base.py", line 369, in __getnewargs__
+    raise TypeError("h5py objects cannot be pickled")
+TypeError: h5py objects cannot be pickled
+2025-10-01 02:11:50,389 - distributed.protocol.pickle - ERROR - Failed to serialize <xarray.Dataset> Size: 3GB
+Dimensions:    (time: 744, latitude: 721, longitude: 1440)
+Coordinates:
+  * latitude   (latitude) float64 6kB 90.0 89.75 89.5 ... -89.5 -89.75 -90.0
+  * longitude  (longitude) float64 12kB 0.0 0.25 0.5 0.75 ... 359.2 359.5 359.8
+  * time       (time) datetime64[ns] 6kB 1989-05-01 ... 1989-05-31T23:00:00
+Data variables:
+    VAR_2T     (time, latitude, longitude) float32 3GB dask.array<chunksize=(27, 139, 277), meta=np.ndarray>
+    utc_date   (time) int32 3kB dask.array<chunksize=(744,), meta=np.ndarray>
+Attributes: (12/24)
+    DATA_SOURCE:                     ECMWF: https://cds.climate.copernicus.eu...
+    NETCDF_CONVERSION:               CISL RDA: Conversion from ECMWF GRIB1 da...
+    NETCDF_VERSION:                  4.6.1
+    CONVERSION_PLATFORM:             Linux r6i2n17 3.12.62-60.64.8-default #1...
+    CONVERSION_DATE:                 Wed Jun 19 15:28:54 MDT 2019
+    Conventions:                     CF-1.6
+    ...                              ...
+    intake_esm_attrs:year:           1989
+    intake_esm_attrs:month:          5
+    intake_esm_attrs:format:         nc
+    intake_esm_attrs:frequency:      hourly
+    intake_esm_attrs:path:           https://data.rda.ucar.edu/d633000/e5.ope...
+    intake_esm_attrs:_data_format_:  netcdf.
+Traceback (most recent call last):
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/distributed/protocol/pickle.py", line 63, in dumps
+    result = pickle.dumps(x, **dump_kwargs)
+TypeError: cannot pickle 'module' object
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/distributed/protocol/pickle.py", line 68, in dumps
+    pickler.dump(x)
+    ~~~~~~~~~~~~^^^
+TypeError: cannot pickle 'module' object
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/distributed/protocol/pickle.py", line 80, in dumps
+    result = cloudpickle.dumps(x, **dump_kwargs)
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/cloudpickle/cloudpickle.py", line 1537, in dumps
+    cp.dump(obj)
+    ~~~~~~~^^^^^
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/cloudpickle/cloudpickle.py", line 1303, in dump
+    return super().dump(obj)
+           ~~~~~~~~~~~~^^^^^
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/h5py/_hl/base.py", line 369, in __getnewargs__
+    raise TypeError("h5py objects cannot be pickled")
+TypeError: h5py objects cannot be pickled
+2025-10-01 02:11:50,391 - distributed.protocol.pickle - ERROR - Failed to serialize <xarray.Dataset> Size: 3GB
+Dimensions:    (time: 744, latitude: 721, longitude: 1440)
+Coordinates:
+  * latitude   (latitude) float64 6kB 90.0 89.75 89.5 ... -89.5 -89.75 -90.0
+  * longitude  (longitude) float64 12kB 0.0 0.25 0.5 0.75 ... 359.2 359.5 359.8
+  * time       (time) datetime64[ns] 6kB 1996-12-01 ... 1996-12-31T23:00:00
+Data variables:
+    VAR_2T     (time, latitude, longitude) float32 3GB dask.array<chunksize=(27, 139, 277), meta=np.ndarray>
+    utc_date   (time) int32 3kB dask.array<chunksize=(744,), meta=np.ndarray>
+Attributes: (12/24)
+    DATA_SOURCE:                     ECMWF: https://cds.climate.copernicus.eu...
+    NETCDF_CONVERSION:               CISL RDA: Conversion from ECMWF GRIB1 da...
+    NETCDF_VERSION:                  4.6.3
+    CONVERSION_PLATFORM:             Linux r1i6n3 4.12.14-94.41-default #1 SM...
+    CONVERSION_DATE:                 Sun Jul 14 16:51:17 MDT 2019
+    Conventions:                     CF-1.6
+    ...                              ...
+    intake_esm_attrs:year:           1996
+    intake_esm_attrs:month:          12
+    intake_esm_attrs:format:         nc
+    intake_esm_attrs:frequency:      hourly
+    intake_esm_attrs:path:           https://data.rda.ucar.edu/d633000/e5.ope...
+    intake_esm_attrs:_data_format_:  netcdf.
+Traceback (most recent call last):
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/distributed/protocol/pickle.py", line 63, in dumps
+    result = pickle.dumps(x, **dump_kwargs)
+TypeError: cannot pickle 'module' object
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/distributed/protocol/pickle.py", line 68, in dumps
+    pickler.dump(x)
+    ~~~~~~~~~~~~^^^
+TypeError: cannot pickle 'module' object
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/distributed/protocol/pickle.py", line 80, in dumps
+    result = cloudpickle.dumps(x, **dump_kwargs)
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/cloudpickle/cloudpickle.py", line 1537, in dumps
+    cp.dump(obj)
+    ~~~~~~~^^^^^
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/cloudpickle/cloudpickle.py", line 1303, in dump
+    return super().dump(obj)
+           ~~~~~~~~~~~~^^^^^
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/h5py/_hl/base.py", line 369, in __getnewargs__
+    raise TypeError("h5py objects cannot be pickled")
+TypeError: h5py objects cannot be pickled
+2025-10-01 02:11:50,392 - distributed.protocol.pickle - ERROR - Failed to serialize <xarray.Dataset> Size: 3GB
+Dimensions:    (time: 744, latitude: 721, longitude: 1440)
+Coordinates:
+  * latitude   (latitude) float64 6kB 90.0 89.75 89.5 ... -89.5 -89.75 -90.0
+  * longitude  (longitude) float64 12kB 0.0 0.25 0.5 0.75 ... 359.2 359.5 359.8
+  * time       (time) datetime64[ns] 6kB 1952-01-01 ... 1952-01-31T23:00:00
+Data variables:
+    VAR_2T     (time, latitude, longitude) float32 3GB dask.array<chunksize=(27, 139, 277), meta=np.ndarray>
+    utc_date   (time) int32 3kB dask.array<chunksize=(744,), meta=np.ndarray>
+Attributes: (12/24)
+    DATA_SOURCE:                     ECMWF: https://cds.climate.copernicus.eu...
+    NETCDF_CONVERSION:               CISL RDA: Conversion from ECMWF GRIB1 da...
+    NETCDF_VERSION:                  4.8.1
+    CONVERSION_PLATFORM:             Linux r8i5n19 4.12.14-95.51-default #1 S...
+    CONVERSION_DATE:                 Sat Apr 15 20:43:27 MDT 2023
+    Conventions:                     CF-1.6
+    ...                              ...
+    intake_esm_attrs:year:           1952
+    intake_esm_attrs:month:          1
+    intake_esm_attrs:format:         nc
+    intake_esm_attrs:frequency:      hourly
+    intake_esm_attrs:path:           https://data.rda.ucar.edu/d633000/e5.ope...
+    intake_esm_attrs:_data_format_:  netcdf.
+Traceback (most recent call last):
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/distributed/protocol/pickle.py", line 63, in dumps
+    result = pickle.dumps(x, **dump_kwargs)
+TypeError: cannot pickle 'module' object
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/distributed/protocol/pickle.py", line 68, in dumps
+    pickler.dump(x)
+    ~~~~~~~~~~~~^^^
+TypeError: cannot pickle 'module' object
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/distributed/protocol/pickle.py", line 80, in dumps
+    result = cloudpickle.dumps(x, **dump_kwargs)
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/cloudpickle/cloudpickle.py", line 1537, in dumps
+    cp.dump(obj)
+    ~~~~~~~^^^^^
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/cloudpickle/cloudpickle.py", line 1303, in dump
+    return super().dump(obj)
+           ~~~~~~~~~~~~^^^^^
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/h5py/_hl/base.py", line 369, in __getnewargs__
+    raise TypeError("h5py objects cannot be pickled")
+TypeError: h5py objects cannot be pickled
+2025-10-01 02:11:50,396 - distributed.protocol.pickle - ERROR - Failed to serialize <xarray.Dataset> Size: 3GB
+Dimensions:    (time: 744, latitude: 721, longitude: 1440)
+Coordinates:
+  * latitude   (latitude) float64 6kB 90.0 89.75 89.5 ... -89.5 -89.75 -90.0
+  * longitude  (longitude) float64 12kB 0.0 0.25 0.5 0.75 ... 359.2 359.5 359.8
+  * time       (time) datetime64[ns] 6kB 1954-03-01 ... 1954-03-31T23:00:00
+Data variables:
+    VAR_2T     (time, latitude, longitude) float32 3GB dask.array<chunksize=(27, 139, 277), meta=np.ndarray>
+    utc_date   (time) int32 3kB dask.array<chunksize=(744,), meta=np.ndarray>
+Attributes: (12/24)
+    DATA_SOURCE:                     ECMWF: https://cds.climate.copernicus.eu...
+    NETCDF_CONVERSION:               CISL RDA: Conversion from ECMWF GRIB1 da...
+    NETCDF_VERSION:                  4.8.1
+    CONVERSION_PLATFORM:             Linux r5i7n6 4.12.14-95.51-default #1 SM...
+    CONVERSION_DATE:                 Mon Apr  3 20:23:52 MDT 2023
+    Conventions:                     CF-1.6
+    ...                              ...
+    intake_esm_attrs:year:           1954
+    intake_esm_attrs:month:          3
+    intake_esm_attrs:format:         nc
+    intake_esm_attrs:frequency:      hourly
+    intake_esm_attrs:path:           https://data.rda.ucar.edu/d633000/e5.ope...
+    intake_esm_attrs:_data_format_:  netcdf.
+Traceback (most recent call last):
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/distributed/protocol/pickle.py", line 63, in dumps
+    result = pickle.dumps(x, **dump_kwargs)
+TypeError: cannot pickle 'module' object
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/distributed/protocol/pickle.py", line 68, in dumps
+    pickler.dump(x)
+    ~~~~~~~~~~~~^^^
+TypeError: cannot pickle 'module' object
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/distributed/protocol/pickle.py", line 80, in dumps
+    result = cloudpickle.dumps(x, **dump_kwargs)
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/cloudpickle/cloudpickle.py", line 1537, in dumps
+    cp.dump(obj)
+    ~~~~~~~^^^^^
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/cloudpickle/cloudpickle.py", line 1303, in dump
+    return super().dump(obj)
+           ~~~~~~~~~~~~^^^^^
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/h5py/_hl/base.py", line 369, in __getnewargs__
+    raise TypeError("h5py objects cannot be pickled")
+TypeError: h5py objects cannot be pickled
+2025-10-01 02:11:50,400 - distributed.protocol.pickle - ERROR - Failed to serialize <xarray.Dataset> Size: 3GB
+Dimensions:    (time: 672, latitude: 721, longitude: 1440)
+Coordinates:
+  * latitude   (latitude) float64 6kB 90.0 89.75 89.5 ... -89.5 -89.75 -90.0
+  * longitude  (longitude) float64 12kB 0.0 0.25 0.5 0.75 ... 359.2 359.5 359.8
+  * time       (time) datetime64[ns] 5kB 1966-02-01 ... 1966-02-28T23:00:00
+Data variables:
+    VAR_2T     (time, latitude, longitude) float32 3GB dask.array<chunksize=(26, 142, 284), meta=np.ndarray>
+    utc_date   (time) int32 3kB dask.array<chunksize=(672,), meta=np.ndarray>
+Attributes: (12/24)
+    DATA_SOURCE:                     ECMWF: https://cds.climate.copernicus.eu...
+    NETCDF_CONVERSION:               CISL RDA: Conversion from ECMWF GRIB1 da...
+    NETCDF_VERSION:                  4.8.1
+    CONVERSION_PLATFORM:             Linux r1i3n22 4.12.14-95.51-default #1 S...
+    CONVERSION_DATE:                 Thu Aug 18 08:06:38 MDT 2022
+    Conventions:                     CF-1.6
+    ...                              ...
+    intake_esm_attrs:year:           1966
+    intake_esm_attrs:month:          2
+    intake_esm_attrs:format:         nc
+    intake_esm_attrs:frequency:      hourly
+    intake_esm_attrs:path:           https://data.rda.ucar.edu/d633000/e5.ope...
+    intake_esm_attrs:_data_format_:  netcdf.
+Traceback (most recent call last):
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/distributed/protocol/pickle.py", line 63, in dumps
+    result = pickle.dumps(x, **dump_kwargs)
+TypeError: cannot pickle 'module' object
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/distributed/protocol/pickle.py", line 68, in dumps
+    pickler.dump(x)
+    ~~~~~~~~~~~~^^^
+TypeError: cannot pickle 'module' object
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/distributed/protocol/pickle.py", line 80, in dumps
+    result = cloudpickle.dumps(x, **dump_kwargs)
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/cloudpickle/cloudpickle.py", line 1537, in dumps
+    cp.dump(obj)
+    ~~~~~~~^^^^^
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/cloudpickle/cloudpickle.py", line 1303, in dump
+    return super().dump(obj)
+           ~~~~~~~~~~~~^^^^^
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/h5py/_hl/base.py", line 369, in __getnewargs__
+    raise TypeError("h5py objects cannot be pickled")
+TypeError: h5py objects cannot be pickled
+2025-10-01 02:11:50,404 - distributed.protocol.pickle - ERROR - Failed to serialize <xarray.Dataset> Size: 3GB
+Dimensions:    (time: 720, latitude: 721, longitude: 1440)
+Coordinates:
+  * latitude   (latitude) float64 6kB 90.0 89.75 89.5 ... -89.5 -89.75 -90.0
+  * longitude  (longitude) float64 12kB 0.0 0.25 0.5 0.75 ... 359.2 359.5 359.8
+  * time       (time) datetime64[ns] 6kB 1947-06-01 ... 1947-06-30T23:00:00
+Data variables:
+    VAR_2T     (time, latitude, longitude) float32 3GB dask.array<chunksize=(27, 139, 279), meta=np.ndarray>
+    utc_date   (time) int32 3kB dask.array<chunksize=(720,), meta=np.ndarray>
+Attributes: (12/24)
+    DATA_SOURCE:                     ECMWF: https://cds.climate.copernicus.eu...
+    NETCDF_CONVERSION:               CISL RDA: Conversion from ECMWF GRIB1 da...
+    NETCDF_VERSION:                  4.8.1
+    CONVERSION_PLATFORM:             Linux r1i4n10 4.12.14-95.51-default #1 S...
+    CONVERSION_DATE:                 Sun Apr 30 10:08:35 MDT 2023
+    Conventions:                     CF-1.6
+    ...                              ...
+    intake_esm_attrs:year:           1947
+    intake_esm_attrs:month:          6
+    intake_esm_attrs:format:         nc
+    intake_esm_attrs:frequency:      hourly
+    intake_esm_attrs:path:           https://data.rda.ucar.edu/d633000/e5.ope...
+    intake_esm_attrs:_data_format_:  netcdf.
+Traceback (most recent call last):
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/distributed/protocol/pickle.py", line 63, in dumps
+    result = pickle.dumps(x, **dump_kwargs)
+TypeError: cannot pickle 'module' object
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/distributed/protocol/pickle.py", line 68, in dumps
+    pickler.dump(x)
+    ~~~~~~~~~~~~^^^
+TypeError: cannot pickle 'module' object
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/distributed/protocol/pickle.py", line 80, in dumps
+    result = cloudpickle.dumps(x, **dump_kwargs)
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/cloudpickle/cloudpickle.py", line 1537, in dumps
+    cp.dump(obj)
+    ~~~~~~~^^^^^
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/cloudpickle/cloudpickle.py", line 1303, in dump
+    return super().dump(obj)
+           ~~~~~~~~~~~~^^^^^
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/h5py/_hl/base.py", line 369, in __getnewargs__
+    raise TypeError("h5py objects cannot be pickled")
+TypeError: h5py objects cannot be pickled
+2025-10-01 02:11:50,407 - distributed.protocol.pickle - ERROR - Failed to serialize <xarray.Dataset> Size: 3GB
+Dimensions:    (time: 744, latitude: 721, longitude: 1440)
+Coordinates:
+  * latitude   (latitude) float64 6kB 90.0 89.75 89.5 ... -89.5 -89.75 -90.0
+  * longitude  (longitude) float64 12kB 0.0 0.25 0.5 0.75 ... 359.2 359.5 359.8
+  * time       (time) datetime64[ns] 6kB 1973-07-01 ... 1973-07-31T23:00:00
+Data variables:
+    VAR_2T     (time, latitude, longitude) float32 3GB dask.array<chunksize=(27, 139, 277), meta=np.ndarray>
+    utc_date   (time) int32 3kB dask.array<chunksize=(744,), meta=np.ndarray>
+Attributes: (12/24)
+    DATA_SOURCE:                     ECMWF: https://cds.climate.copernicus.eu...
+    NETCDF_CONVERSION:               CISL RDA: Conversion from ECMWF GRIB1 da...
+    NETCDF_VERSION:                  4.8.1
+    CONVERSION_PLATFORM:             Linux r2i4n10 4.12.14-95.51-default #1 S...
+    CONVERSION_DATE:                 Thu Jul 28 17:59:13 MDT 2022
+    Conventions:                     CF-1.6
+    ...                              ...
+    intake_esm_attrs:year:           1973
+    intake_esm_attrs:month:          7
+    intake_esm_attrs:format:         nc
+    intake_esm_attrs:frequency:      hourly
+    intake_esm_attrs:path:           https://data.rda.ucar.edu/d633000/e5.ope...
+    intake_esm_attrs:_data_format_:  netcdf.
+Traceback (most recent call last):
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/distributed/protocol/pickle.py", line 63, in dumps
+    result = pickle.dumps(x, **dump_kwargs)
+TypeError: cannot pickle 'module' object
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/distributed/protocol/pickle.py", line 68, in dumps
+    pickler.dump(x)
+    ~~~~~~~~~~~~^^^
+TypeError: cannot pickle 'module' object
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/distributed/protocol/pickle.py", line 80, in dumps
+    result = cloudpickle.dumps(x, **dump_kwargs)
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/cloudpickle/cloudpickle.py", line 1537, in dumps
+    cp.dump(obj)
+    ~~~~~~~^^^^^
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/cloudpickle/cloudpickle.py", line 1303, in dump
+    return super().dump(obj)
+           ~~~~~~~~~~~~^^^^^
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/h5py/_hl/base.py", line 369, in __getnewargs__
+    raise TypeError("h5py objects cannot be pickled")
+TypeError: h5py objects cannot be pickled
+2025-10-01 02:11:50,411 - distributed.protocol.pickle - ERROR - Failed to serialize <xarray.Dataset> Size: 3GB
+Dimensions:    (time: 720, latitude: 721, longitude: 1440)
+Coordinates:
+  * latitude   (latitude) float64 6kB 90.0 89.75 89.5 ... -89.5 -89.75 -90.0
+  * longitude  (longitude) float64 12kB 0.0 0.25 0.5 0.75 ... 359.2 359.5 359.8
+  * time       (time) datetime64[ns] 6kB 1955-04-01 ... 1955-04-30T23:00:00
+Data variables:
+    VAR_2T     (time, latitude, longitude) float32 3GB dask.array<chunksize=(27, 139, 279), meta=np.ndarray>
+    utc_date   (time) int32 3kB dask.array<chunksize=(720,), meta=np.ndarray>
+Attributes: (12/24)
+    DATA_SOURCE:                     ECMWF: https://cds.climate.copernicus.eu...
+    NETCDF_CONVERSION:               CISL RDA: Conversion from ECMWF GRIB1 da...
+    NETCDF_VERSION:                  4.8.1
+    CONVERSION_PLATFORM:             Linux r1i3n21 4.12.14-95.51-default #1 S...
+    CONVERSION_DATE:                 Fri Mar 31 08:15:21 MDT 2023
+    Conventions:                     CF-1.6
+    ...                              ...
+    intake_esm_attrs:year:           1955
+    intake_esm_attrs:month:          4
+    intake_esm_attrs:format:         nc
+    intake_esm_attrs:frequency:      hourly
+    intake_esm_attrs:path:           https://data.rda.ucar.edu/d633000/e5.ope...
+    intake_esm_attrs:_data_format_:  netcdf.
+Traceback (most recent call last):
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/distributed/protocol/pickle.py", line 63, in dumps
+    result = pickle.dumps(x, **dump_kwargs)
+TypeError: cannot pickle 'module' object
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/distributed/protocol/pickle.py", line 68, in dumps
+    pickler.dump(x)
+    ~~~~~~~~~~~~^^^
+TypeError: cannot pickle 'module' object
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/distributed/protocol/pickle.py", line 80, in dumps
+    result = cloudpickle.dumps(x, **dump_kwargs)
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/cloudpickle/cloudpickle.py", line 1537, in dumps
+    cp.dump(obj)
+    ~~~~~~~^^^^^
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/cloudpickle/cloudpickle.py", line 1303, in dump
+    return super().dump(obj)
+           ~~~~~~~~~~~~^^^^^
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/h5py/_hl/base.py", line 369, in __getnewargs__
+    raise TypeError("h5py objects cannot be pickled")
+TypeError: h5py objects cannot be pickled
+2025-10-01 02:11:50,415 - distributed.protocol.pickle - ERROR - Failed to serialize <xarray.Dataset> Size: 3GB
+Dimensions:    (time: 744, latitude: 721, longitude: 1440)
+Coordinates:
+  * latitude   (latitude) float64 6kB 90.0 89.75 89.5 ... -89.5 -89.75 -90.0
+  * longitude  (longitude) float64 12kB 0.0 0.25 0.5 0.75 ... 359.2 359.5 359.8
+  * time       (time) datetime64[ns] 6kB 1981-10-01 ... 1981-10-31T23:00:00
+Data variables:
+    VAR_2T     (time, latitude, longitude) float32 3GB dask.array<chunksize=(27, 139, 277), meta=np.ndarray>
+    utc_date   (time) int32 3kB dask.array<chunksize=(744,), meta=np.ndarray>
+Attributes: (12/24)
+    DATA_SOURCE:                     ECMWF: https://cds.climate.copernicus.eu...
+    NETCDF_CONVERSION:               CISL RDA: Conversion from ECMWF GRIB1 da...
+    NETCDF_VERSION:                  4.6.1
+    CONVERSION_PLATFORM:             Linux r1i2n10 3.12.62-60.64.8-default #1...
+    CONVERSION_DATE:                 Sun May 26 23:08:51 MDT 2019
+    Conventions:                     CF-1.6
+    ...                              ...
+    intake_esm_attrs:year:           1981
+    intake_esm_attrs:month:          10
+    intake_esm_attrs:format:         nc
+    intake_esm_attrs:frequency:      hourly
+    intake_esm_attrs:path:           https://data.rda.ucar.edu/d633000/e5.ope...
+    intake_esm_attrs:_data_format_:  netcdf.
+Traceback (most recent call last):
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/distributed/protocol/pickle.py", line 63, in dumps
+    result = pickle.dumps(x, **dump_kwargs)
+TypeError: cannot pickle 'module' object
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/distributed/protocol/pickle.py", line 68, in dumps
+    pickler.dump(x)
+    ~~~~~~~~~~~~^^^
+TypeError: cannot pickle 'module' object
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/distributed/protocol/pickle.py", line 80, in dumps
+    result = cloudpickle.dumps(x, **dump_kwargs)
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/cloudpickle/cloudpickle.py", line 1537, in dumps
+    cp.dump(obj)
+    ~~~~~~~^^^^^
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/cloudpickle/cloudpickle.py", line 1303, in dump
+    return super().dump(obj)
+           ~~~~~~~~~~~~^^^^^
+  File "/home/runner/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/h5py/_hl/base.py", line 369, in __getnewargs__
+    raise TypeError("h5py objects cannot be pickled")
+TypeError: h5py objects cannot be pickled
