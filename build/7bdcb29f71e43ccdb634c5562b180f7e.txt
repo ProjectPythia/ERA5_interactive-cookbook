@@ -1,0 +1,358 @@
+[31m---------------------------------------------------------------------------[39m
+[31mCancelledError[39m                            Traceback (most recent call last)
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/aiohttp/client_reqrep.py:539[39m, in [36mClientResponse.start[39m[34m(self, connection)[39m
+[32m    538[39m     protocol = [38;5;28mself[39m._protocol
+[32m--> [39m[32m539[39m     message, payload = [38;5;28;01mawait[39;00m protocol.read()  [38;5;66;03m# type: ignore[union-attr][39;00m
+[32m    540[39m [38;5;28;01mexcept[39;00m http.HttpProcessingError [38;5;28;01mas[39;00m exc:
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/aiohttp/streams.py:703[39m, in [36mDataQueue.read[39m[34m(self)[39m
+[32m    702[39m [38;5;28;01mtry[39;00m:
+[32m--> [39m[32m703[39m     [38;5;28;01mawait[39;00m [38;5;28mself[39m._waiter
+[32m    704[39m [38;5;28;01mexcept[39;00m (asyncio.CancelledError, asyncio.TimeoutError):
+
+[31mCancelledError[39m: 
+
+The above exception was the direct cause of the following exception:
+
+[31mTimeoutError[39m                              Traceback (most recent call last)
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/fsspec/asyn.py:56[39m, in [36m_runner[39m[34m(event, coro, result, timeout)[39m
+[32m     55[39m [38;5;28;01mtry[39;00m:
+[32m---> [39m[32m56[39m     result[[32m0[39m] = [38;5;28;01mawait[39;00m coro
+[32m     57[39m [38;5;28;01mexcept[39;00m [38;5;167;01mException[39;00m [38;5;28;01mas[39;00m ex:
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/fsspec/implementations/http.py:692[39m, in [36mHTTPFile.async_fetch_range[39m[34m(self, start, end)[39m
+[32m    691[39m logger.debug([33mf[39m[33m"[39m[38;5;132;01m{[39;00m[38;5;28mself[39m.url[38;5;132;01m}[39;00m[33m : [39m[38;5;132;01m{[39;00mheaders[[33m'[39m[33mRange[39m[33m'[39m][38;5;132;01m}[39;00m[33m"[39m)
+[32m--> [39m[32m692[39m r = [38;5;28;01mawait[39;00m [38;5;28mself[39m.session.get(
+[32m    693[39m     [38;5;28mself[39m.fs.encode_url([38;5;28mself[39m.url), headers=headers, **kwargs
+[32m    694[39m )
+[32m    695[39m [38;5;28;01masync[39;00m [38;5;28;01mwith[39;00m r:
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/aiohttp/client.py:779[39m, in [36mClientSession._request[39m[34m(self, method, str_or_url, params, data, json, cookies, headers, skip_auto_headers, auth, allow_redirects, max_redirects, compress, chunked, expect100, raise_for_status, read_until_eof, proxy, proxy_auth, timeout, verify_ssl, fingerprint, ssl_context, ssl, server_hostname, proxy_headers, trace_request_ctx, read_bufsize, auto_decompress, max_line_size, max_field_size, middlewares)[39m
+[32m    778[39m [38;5;28;01mtry[39;00m:
+[32m--> [39m[32m779[39m     resp = [38;5;28;01mawait[39;00m handler(req)
+[32m    780[39m [38;5;66;03m# Client connector errors should not be retried[39;00m
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/aiohttp/client.py:757[39m, in [36mClientSession._request.<locals>._connect_and_send_request[39m[34m(req)[39m
+[32m    756[39m [38;5;28;01mtry[39;00m:
+[32m--> [39m[32m757[39m     [38;5;28;01mawait[39;00m resp.start(conn)
+[32m    758[39m [38;5;28;01mexcept[39;00m [38;5;167;01mBaseException[39;00m:
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/aiohttp/client_reqrep.py:534[39m, in [36mClientResponse.start[39m[34m(self, connection)[39m
+[32m    532[39m [38;5;28mself[39m._connection = connection
+[32m--> [39m[32m534[39m [38;5;28;01mwith[39;00m [38;5;28mself[39m._timer:
+[32m    535[39m     [38;5;28;01mwhile[39;00m [38;5;28;01mTrue[39;00m:
+[32m    536[39m         [38;5;66;03m# read response[39;00m
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/aiohttp/helpers.py:713[39m, in [36mTimerContext.__exit__[39m[34m(self, exc_type, exc_val, exc_tb)[39m
+[32m    712[39m             [38;5;28;01mreturn[39;00m [38;5;28;01mNone[39;00m
+[32m--> [39m[32m713[39m     [38;5;28;01mraise[39;00m asyncio.TimeoutError [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01mexc_val[39;00m
+[32m    714[39m [38;5;28;01mreturn[39;00m [38;5;28;01mNone[39;00m
+
+[31mTimeoutError[39m: 
+
+The above exception was the direct cause of the following exception:
+
+[31mFSTimeoutError[39m                            Traceback (most recent call last)
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/intake_esm/source.py:256[39m, in [36mESMDataSource._open_dataset[39m[34m(self)[39m
+[32m    235[39m datasets = [
+[32m    236[39m     _open_dataset(
+[32m    237[39m         record[[38;5;28mself[39m.path_column_name],
+[32m   (...)[39m[32m    253[39m     [38;5;28;01mfor[39;00m _, record [38;5;129;01min[39;00m [38;5;28mself[39m.df.iterrows()
+[32m    254[39m ]
+[32m--> [39m[32m256[39m datasets = [43mdask[49m[43m.[49m[43mcompute[49m[43m([49m[43m*[49m[43mdatasets[49m[43m)[49m
+[32m    257[39m [38;5;28;01mif[39;00m [38;5;28mlen[39m(datasets) == [32m1[39m [38;5;129;01mor[39;00m [38;5;129;01mnot[39;00m datasets[[32m0[39m].data_vars:
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/dask/base.py:686[39m, in [36mcompute[39m[34m(traverse, optimize_graph, scheduler, get, *args, **kwargs)[39m
+[32m    684[39m     keys = [38;5;28mlist[39m(flatten(expr.__dask_keys__()))
+[32m--> [39m[32m686[39m     results = [43mschedule[49m[43m([49m[43mexpr[49m[43m,[49m[43m [49m[43mkeys[49m[43m,[49m[43m [49m[43m*[49m[43m*[49m[43mkwargs[49m[43m)[49m
+[32m    688[39m [38;5;28;01mreturn[39;00m repack(results)
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/distributed/utils_comm.py:416[39m, in [36mretry_operation[39m[34m(coro, operation, *args, **kwargs)[39m
+[32m    413[39m retry_delay_max = parse_timedelta(
+[32m    414[39m     dask.config.get([33m"[39m[33mdistributed.comm.retry.delay.max[39m[33m"[39m), default=[33m"[39m[33ms[39m[33m"[39m
+[32m    415[39m )
+[32m--> [39m[32m416[39m [38;5;28;01mreturn[39;00m [38;5;28;01mawait[39;00m retry(
+[32m    417[39m     partial(coro, *args, **kwargs),
+[32m    418[39m     count=retry_count,
+[32m    419[39m     delay_min=retry_delay_min,
+[32m    420[39m     delay_max=retry_delay_max,
+[32m    421[39m     operation=operation,
+[32m    422[39m )
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/distributed/utils_comm.py:395[39m, in [36mretry[39m[34m(coro, count, delay_min, delay_max, jitter_fraction, retry_on_exceptions, operation)[39m
+[32m    394[39m         [38;5;28;01mawait[39;00m asyncio.sleep(delay)
+[32m--> [39m[32m395[39m [38;5;28;01mreturn[39;00m [38;5;28;01mawait[39;00m coro()
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/distributed/core.py:1259[39m, in [36mPooledRPCCall.__getattr__.<locals>.send_recv_from_rpc[39m[34m(**kwargs)[39m
+[32m   1258[39m [38;5;28;01mtry[39;00m:
+[32m-> [39m[32m1259[39m     [38;5;28;01mreturn[39;00m [38;5;28;01mawait[39;00m send_recv(comm=comm, op=key, **kwargs)
+[32m   1260[39m [38;5;28;01mfinally[39;00m:
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/distributed/core.py:1018[39m, in [36msend_recv[39m[34m(comm, reply, serializers, deserializers, **kwargs)[39m
+[32m   1017[39m [38;5;28;01mif[39;00m reply:
+[32m-> [39m[32m1018[39m     response = [38;5;28;01mawait[39;00m comm.read(deserializers=deserializers)
+[32m   1019[39m [38;5;28;01melse[39;00m:
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/distributed/comm/tcp.py:248[39m, in [36mTCP.read[39m[34m(self, deserializers)[39m
+[32m    247[39m [38;5;28;01mtry[39;00m:
+[32m--> [39m[32m248[39m     msg = [38;5;28;01mawait[39;00m from_frames(
+[32m    249[39m         frames,
+[32m    250[39m         deserialize=[38;5;28mself[39m.deserialize,
+[32m    251[39m         deserializers=deserializers,
+[32m    252[39m         allow_offload=[38;5;28mself[39m.allow_offload,
+[32m    253[39m     )
+[32m    254[39m [38;5;28;01mexcept[39;00m [38;5;167;01mEOFError[39;00m:
+[32m    255[39m     [38;5;66;03m# Frames possibly garbled or truncated by communication error[39;00m
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/distributed/comm/utils.py:76[39m, in [36mfrom_frames[39m[34m(frames, deserialize, deserializers, allow_offload)[39m
+[32m     75[39m [38;5;28;01mif[39;00m allow_offload [38;5;129;01mand[39;00m deserialize [38;5;129;01mand[39;00m OFFLOAD_THRESHOLD [38;5;129;01mand[39;00m size > OFFLOAD_THRESHOLD:
+[32m---> [39m[32m76[39m     res = [38;5;28;01mawait[39;00m offload(_from_frames)
+[32m     77[39m [38;5;28;01melse[39;00m:
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/distributed/comm/utils.py:61[39m, in [36mfrom_frames.<locals>._from_frames[39m[34m()[39m
+[32m     60[39m [38;5;28;01mtry[39;00m:
+[32m---> [39m[32m61[39m     [38;5;28;01mreturn[39;00m [43mprotocol[49m[43m.[49m[43mloads[49m[43m([49m
+[32m     62[39m [43m        [49m[43mframes[49m[43m,[49m[43m [49m[43mdeserialize[49m[43m=[49m[43mdeserialize[49m[43m,[49m[43m [49m[43mdeserializers[49m[43m=[49m[43mdeserializers[49m
+[32m     63[39m [43m    [49m[43m)[49m
+[32m     64[39m [38;5;28;01mexcept[39;00m [38;5;167;01mEOFError[39;00m:
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/distributed/protocol/core.py:175[39m, in [36mloads[39m[34m(frames, deserialize, deserializers)[39m
+[32m    173[39m         [38;5;28;01mreturn[39;00m msgpack_decode_default(obj)
+[32m--> [39m[32m175[39m     [38;5;28;01mreturn[39;00m [43mmsgpack[49m[43m.[49m[43mloads[49m[43m([49m
+[32m    176[39m [43m        [49m[43mframes[49m[43m[[49m[32;43m0[39;49m[43m][49m[43m,[49m[43m [49m[43mobject_hook[49m[43m=[49m[43m_decode_default[49m[43m,[49m[43m [49m[43muse_list[49m[43m=[49m[38;5;28;43;01mFalse[39;49;00m[43m,[49m[43m [49m[43m*[49m[43m*[49m[43mmsgpack_opts[49m
+[32m    177[39m [43m    [49m[43m)[49m
+[32m    179[39m [38;5;28;01mexcept[39;00m [38;5;167;01mException[39;00m:
+
+[36mFile [39m[32mmsgpack/_unpacker.pyx:194[39m, in [36mmsgpack._cmsgpack.unpackb[39m[34m()[39m
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/distributed/protocol/core.py:159[39m, in [36mloads.<locals>._decode_default[39m[34m(obj)[39m
+[32m    158[39m         sub_frames = decompress(sub_header, sub_frames)
+[32m--> [39m[32m159[39m     [38;5;28;01mreturn[39;00m [43mmerge_and_deserialize[49m[43m([49m
+[32m    160[39m [43m        [49m[43msub_header[49m[43m,[49m[43m [49m[43msub_frames[49m[43m,[49m[43m [49m[43mdeserializers[49m[43m=[49m[43mdeserializers[49m
+[32m    161[39m [43m    [49m[43m)[49m
+[32m    162[39m [38;5;28;01melse[39;00m:
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.13/contextlib.py:85[39m, in [36mContextDecorator.__call__.<locals>.inner[39m[34m(*args, **kwds)[39m
+[32m     84[39m [38;5;28;01mwith[39;00m [38;5;28mself[39m._recreate_cm():
+[32m---> [39m[32m85[39m     [38;5;28;01mreturn[39;00m [43mfunc[49m[43m([49m[43m*[49m[43margs[49m[43m,[49m[43m [49m[43m*[49m[43m*[49m[43mkwds[49m[43m)[49m
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/distributed/protocol/serialize.py:525[39m, in [36mmerge_and_deserialize[39m[34m(header, frames, deserializers)[39m
+[32m    523[39m         merged_frames.append(merged)
+[32m--> [39m[32m525[39m [38;5;28;01mreturn[39;00m [43mdeserialize[49m[43m([49m[43mheader[49m[43m,[49m[43m [49m[43mmerged_frames[49m[43m,[49m[43m [49m[43mdeserializers[49m[43m=[49m[43mdeserializers[49m[43m)[49m
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/distributed/protocol/serialize.py:452[39m, in [36mdeserialize[39m[34m(header, frames, deserializers)[39m
+[32m    451[39m dumps, loads, wants_context = families[name]
+[32m--> [39m[32m452[39m [38;5;28;01mreturn[39;00m [43mloads[49m[43m([49m[43mheader[49m[43m,[49m[43m [49m[43mframes[49m[43m)[49m
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/distributed/protocol/serialize.py:111[39m, in [36mpickle_loads[39m[34m(header, frames)[39m
+[32m    106[39m buffers = [
+[32m    107[39m     ensure_writeable_flag(ensure_memoryview(mv), w)
+[32m    108[39m     [38;5;28;01mfor[39;00m mv, w [38;5;129;01min[39;00m [38;5;28mzip[39m(buffers, header[[33m"[39m[33mwriteable[39m[33m"[39m])
+[32m    109[39m ]
+[32m--> [39m[32m111[39m [38;5;28;01mreturn[39;00m [43mpickle[49m[43m.[49m[43mloads[49m[43m([49m[43mpik[49m[43m,[49m[43m [49m[43mbuffers[49m[43m=[49m[43mbuffers[49m[43m)[49m
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/distributed/protocol/pickle.py:95[39m, in [36mloads[39m[34m(x, buffers)[39m
+[32m     94[39m     [38;5;28;01melse[39;00m:
+[32m---> [39m[32m95[39m         [38;5;28;01mreturn[39;00m [43mpickle[49m[43m.[49m[43mloads[49m[43m([49m[43mx[49m[43m)[49m
+[32m     96[39m [38;5;28;01mexcept[39;00m [38;5;167;01mException[39;00m:
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/xarray/backends/file_manager.py:424[39m, in [36mPickleableFileManager.__setstate__[39m[34m(self, state)[39m
+[32m    423[39m opener, args, mode, kwargs = state
+[32m--> [39m[32m424[39m [38;5;28;43mself[39;49m[43m.[49m[34;43m__init__[39;49m[43m([49m[43mopener[49m[43m,[49m[43m [49m[43m*[49m[43margs[49m[43m,[49m[43m [49m[43mmode[49m[43m=[49m[43mmode[49m[43m,[49m[43m [49m[43mkwargs[49m[43m=[49m[43mkwargs[49m[43m)[49m
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/xarray/backends/file_manager.py:370[39m, in [36mPickleableFileManager.__init__[39m[34m(self, opener, mode, kwargs, *args)[39m
+[32m    369[39m     kwargs = kwargs | {[33m"[39m[33mmode[39m[33m"[39m: mode}
+[32m--> [39m[32m370[39m [38;5;28mself[39m._file: T_File | [38;5;28;01mNone[39;00m = [43mopener[49m[43m([49m[43m*[49m[43margs[49m[43m,[49m[43m [49m[43m*[49m[43m*[49m[43mkwargs[49m[43m)[49m
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/h5netcdf/core.py:1726[39m, in [36mFile.__init__[39m[34m(self, path, mode, format, invalid_netcdf, phony_dims, **kwargs)[39m
+[32m   1725[39m [38;5;28mself[39m._all_h5groups = ChainMap([38;5;28mself[39m._h5group)
+[32m-> [39m[32m1726[39m [38;5;28;43msuper[39;49m[43m([49m[43m)[49m[43m.[49m[34;43m__init__[39;49m[43m([49m[38;5;28;43mself[39;49m[43m,[49m[43m [49m[38;5;28;43mself[39;49m[43m.[49m[43m_h5path[49m[43m)[49m
+[32m   1727[39m [38;5;66;03m# get maximum dimension id and count of labeled dimensions[39;00m
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/h5netcdf/core.py:954[39m, in [36mGroup.__init__[39m[34m(self, parent, name)[39m
+[32m    952[39m     phony_dims = Counter()
+[32m--> [39m[32m954[39m [43m[49m[38;5;28;43;01mfor[39;49;00m[43m [49m[43mk[49m[43m,[49m[43m [49m[43mv[49m[43m [49m[38;5;129;43;01min[39;49;00m[43m [49m[38;5;28;43mself[39;49m[43m.[49m[43m_h5group[49m[43m.[49m[43mitems[49m[43m([49m[43m)[49m[43m:[49m
+[32m    955[39m [43m    [49m[38;5;28;43;01mif[39;49;00m[43m [49m[38;5;28;43misinstance[39;49m[43m([49m[43mv[49m[43m,[49m[43m [49m[38;5;28;43mself[39;49m[43m.[49m[43m_root[49m[43m.[49m[43m_h5py[49m[43m.[49m[43mGroup[49m[43m)[49m[43m:[49m
+[32m    956[39m [43m        [49m[38;5;66;43;03m# add to the groups collection if this is a h5py(d) Group[39;49;00m
+[32m    957[39m [43m        [49m[38;5;66;43;03m# instance[39;49;00m
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/h5py/_hl/base.py:436[39m, in [36mItemsViewHDF5.__iter__[39m[34m(self)[39m
+[32m    435[39m [38;5;28;01mfor[39;00m key [38;5;129;01min[39;00m [38;5;28mself[39m._mapping:
+[32m--> [39m[32m436[39m     [38;5;28;01myield[39;00m (key, [38;5;28;43mself[39;49m[43m.[49m[43m_mapping[49m[43m.[49m[43mget[49m[43m([49m[43mkey[49m[43m)[49m)
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/h5py/_hl/group.py:410[39m, in [36mGroup.get[39m[34m(self, name, default, getclass, getlink)[39m
+[32m    409[39m [38;5;28;01mtry[39;00m:
+[32m--> [39m[32m410[39m     [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[43m[[49m[43mname[49m[43m][49m
+[32m    411[39m [38;5;28;01mexcept[39;00m [38;5;167;01mKeyError[39;00m:
+
+[36mFile [39m[32mh5py/_objects.pyx:54[39m, in [36mh5py._objects.with_phil.wrapper[39m[34m()[39m
+
+[36mFile [39m[32mh5py/_objects.pyx:55[39m, in [36mh5py._objects.with_phil.wrapper[39m[34m()[39m
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/h5py/_hl/group.py:367[39m, in [36mGroup.__getitem__[39m[34m(self, name)[39m
+[32m    366[39m [38;5;28;01melif[39;00m [38;5;28misinstance[39m(name, ([38;5;28mbytes[39m, [38;5;28mstr[39m)):
+[32m--> [39m[32m367[39m     oid = [43mh5o[49m[43m.[49m[43mopen[49m[43m([49m[38;5;28;43mself[39;49m[43m.[49m[43mid[49m[43m,[49m[43m [49m[38;5;28;43mself[39;49m[43m.[49m[43m_e[49m[43m([49m[43mname[49m[43m)[49m[43m,[49m[43m [49m[43mlapl[49m[43m=[49m[38;5;28;43mself[39;49m[43m.[49m[43m_lapl[49m[43m)[49m
+[32m    368[39m [38;5;28;01melse[39;00m:
+
+[36mFile [39m[32mh5py/_objects.pyx:54[39m, in [36mh5py._objects.with_phil.wrapper[39m[34m()[39m
+
+[36mFile [39m[32mh5py/_objects.pyx:55[39m, in [36mh5py._objects.with_phil.wrapper[39m[34m()[39m
+
+[36mFile [39m[32mh5py/h5o.pyx:255[39m, in [36mh5py.h5o.open[39m[34m()[39m
+
+[36mFile [39m[32mh5py/h5fd.pyx:159[39m, in [36mh5py.h5fd.H5FD_fileobj_read[39m[34m()[39m
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/fsspec/spec.py:2140[39m, in [36mAbstractBufferedFile.readinto[39m[34m(self, b)[39m
+[32m   2139[39m out = [38;5;28mmemoryview[39m(b).cast([33m"[39m[33mB[39m[33m"[39m)
+[32m-> [39m[32m2140[39m data = [38;5;28;43mself[39;49m[43m.[49m[43mread[49m[43m([49m[43mout[49m[43m.[49m[43mnbytes[49m[43m)[49m
+[32m   2141[39m out[: [38;5;28mlen[39m(data)] = data
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/fsspec/implementations/http.py:644[39m, in [36mHTTPFile.read[39m[34m(self, length)[39m
+[32m    643[39m     length = [38;5;28mmin[39m([38;5;28mself[39m.size - [38;5;28mself[39m.loc, length)
+[32m--> [39m[32m644[39m [38;5;28;01mreturn[39;00m [38;5;28;43msuper[39;49m[43m([49m[43m)[49m[43m.[49m[43mread[49m[43m([49m[43mlength[49m[43m)[49m
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/fsspec/spec.py:2122[39m, in [36mAbstractBufferedFile.read[39m[34m(self, length)[39m
+[32m   2121[39m     [38;5;28;01mreturn[39;00m [33mb[39m[33m"[39m[33m"[39m
+[32m-> [39m[32m2122[39m out = [38;5;28;43mself[39;49m[43m.[49m[43mcache[49m[43m.[49m[43m_fetch[49m[43m([49m[38;5;28;43mself[39;49m[43m.[49m[43mloc[49m[43m,[49m[43m [49m[38;5;28;43mself[39;49m[43m.[49m[43mloc[49m[43m [49m[43m+[49m[43m [49m[43mlength[49m[43m)[49m
+[32m   2124[39m logger.debug(
+[32m   2125[39m     [33m"[39m[38;5;132;01m%s[39;00m[33m read: [39m[38;5;132;01m%i[39;00m[33m - [39m[38;5;132;01m%i[39;00m[33m [39m[38;5;132;01m%s[39;00m[33m"[39m,
+[32m   2126[39m     [38;5;28mself[39m,
+[32m   (...)[39m[32m   2129[39m     [38;5;28mself[39m.cache._log_stats(),
+[32m   2130[39m )
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/fsspec/caching.py:548[39m, in [36mBytesCache._fetch[39m[34m(self, start, end)[39m
+[32m    547[39m [38;5;28mself[39m.total_requested_bytes += bend - start
+[32m--> [39m[32m548[39m [38;5;28mself[39m.cache = [38;5;28;43mself[39;49m[43m.[49m[43mfetcher[49m[43m([49m[43mstart[49m[43m,[49m[43m [49m[43mbend[49m[43m)[49m
+[32m    549[39m [38;5;28mself[39m.start = start
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/fsspec/asyn.py:118[39m, in [36msync_wrapper.<locals>.wrapper[39m[34m(*args, **kwargs)[39m
+[32m    117[39m [38;5;28mself[39m = obj [38;5;129;01mor[39;00m args[[32m0[39m]
+[32m--> [39m[32m118[39m [38;5;28;01mreturn[39;00m [43msync[49m[43m([49m[38;5;28;43mself[39;49m[43m.[49m[43mloop[49m[43m,[49m[43m [49m[43mfunc[49m[43m,[49m[43m [49m[43m*[49m[43margs[49m[43m,[49m[43m [49m[43m*[49m[43m*[49m[43mkwargs[49m[43m)[49m
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/fsspec/asyn.py:101[39m, in [36msync[39m[34m(loop, func, timeout, *args, **kwargs)[39m
+[32m     99[39m [38;5;28;01mif[39;00m [38;5;28misinstance[39m(return_result, asyncio.TimeoutError):
+[32m    100[39m     [38;5;66;03m# suppress asyncio.TimeoutError, raise FSTimeoutError[39;00m
+[32m--> [39m[32m101[39m     [38;5;28;01mraise[39;00m FSTimeoutError [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01mreturn_result[39;00m
+[32m    102[39m [38;5;28;01melif[39;00m [38;5;28misinstance[39m(return_result, [38;5;167;01mBaseException[39;00m):
+
+[31mFSTimeoutError[39m: 
+
+The above exception was the direct cause of the following exception:
+
+[31mESMDataSourceError[39m                        Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[14][39m[32m, line 1[39m
+[32m----> [39m[32m1[39m [43mget_ipython[49m[43m([49m[43m)[49m[43m.[49m[43mrun_cell_magic[49m[43m([49m[33;43m'[39;49m[33;43mtime[39;49m[33;43m'[39;49m[43m,[49m[43m [49m[33;43m'[39;49m[33;43m'[39;49m[43m,[49m[43m [49m[33;43m'[39;49m[33;43mdset_temp = temp_cat.to_dataset_dict(xarray_open_kwargs=xarray_open_kwargs)[39;49m[38;5;130;43;01m\n[39;49;00m[33;43m'[39;49m[43m)[49m
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/IPython/core/interactiveshell.py:2572[39m, in [36mInteractiveShell.run_cell_magic[39m[34m(self, magic_name, line, cell)[39m
+[32m   2570[39m [38;5;28;01mwith[39;00m [38;5;28mself[39m.builtin_trap:
+[32m   2571[39m     args = (magic_arg_s, cell)
+[32m-> [39m[32m2572[39m     result = [43mfn[49m[43m([49m[43m*[49m[43margs[49m[43m,[49m[43m [49m[43m*[49m[43m*[49m[43mkwargs[49m[43m)[49m
+[32m   2574[39m [38;5;66;03m# The code below prevents the output from being displayed[39;00m
+[32m   2575[39m [38;5;66;03m# when using magics with decorator @output_can_be_silenced[39;00m
+[32m   2576[39m [38;5;66;03m# when the last Python token in the expression is a ';'.[39;00m
+[32m   2577[39m [38;5;28;01mif[39;00m [38;5;28mgetattr[39m(fn, magic.MAGIC_OUTPUT_CAN_BE_SILENCED, [38;5;28;01mFalse[39;00m):
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/IPython/core/magics/execution.py:1447[39m, in [36mExecutionMagics.time[39m[34m(self, line, cell, local_ns)[39m
+[32m   1445[39m [38;5;28;01mif[39;00m interrupt_occured:
+[32m   1446[39m     [38;5;28;01mif[39;00m exit_on_interrupt [38;5;129;01mand[39;00m captured_exception:
+[32m-> [39m[32m1447[39m         [38;5;28;01mraise[39;00m captured_exception
+[32m   1448[39m     [38;5;28;01mreturn[39;00m
+[32m   1449[39m [38;5;28;01mreturn[39;00m out
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/IPython/core/magics/execution.py:1411[39m, in [36mExecutionMagics.time[39m[34m(self, line, cell, local_ns)[39m
+[32m   1409[39m st = clock2()
+[32m   1410[39m [38;5;28;01mtry[39;00m:
+[32m-> [39m[32m1411[39m     [43mexec[49m[43m([49m[43mcode[49m[43m,[49m[43m [49m[43mglob[49m[43m,[49m[43m [49m[43mlocal_ns[49m[43m)[49m
+[32m   1412[39m     out = [38;5;28;01mNone[39;00m
+[32m   1413[39m     [38;5;66;03m# multi-line %%time case[39;00m
+
+[36mFile [39m[32m<timed exec>:1[39m
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/pydantic/_internal/_validate_call.py:39[39m, in [36mupdate_wrapper_attributes.<locals>.wrapper_function[39m[34m(*args, **kwargs)[39m
+[32m     37[39m [38;5;129m@functools[39m.wraps(wrapped)
+[32m     38[39m [38;5;28;01mdef[39;00m[38;5;250m [39m[34mwrapper_function[39m(*args, **kwargs):
+[32m---> [39m[32m39[39m     [38;5;28;01mreturn[39;00m [43mwrapper[49m[43m([49m[43m*[49m[43margs[49m[43m,[49m[43m [49m[43m*[49m[43m*[49m[43mkwargs[49m[43m)[49m
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/pydantic/_internal/_validate_call.py:136[39m, in [36mValidateCallWrapper.__call__[39m[34m(self, *args, **kwargs)[39m
+[32m    133[39m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m [38;5;28mself[39m.__pydantic_complete__:
+[32m    134[39m     [38;5;28mself[39m._create_validators()
+[32m--> [39m[32m136[39m res = [38;5;28;43mself[39;49m[43m.[49m[43m__pydantic_validator__[49m[43m.[49m[43mvalidate_python[49m[43m([49m[43mpydantic_core[49m[43m.[49m[43mArgsKwargs[49m[43m([49m[43margs[49m[43m,[49m[43m [49m[43mkwargs[49m[43m)[49m[43m)[49m
+[32m    137[39m [38;5;28;01mif[39;00m [38;5;28mself[39m.__return_pydantic_validator__:
+[32m    138[39m     [38;5;28;01mreturn[39;00m [38;5;28mself[39m.__return_pydantic_validator__(res)
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/intake_esm/core.py:689[39m, in [36mesm_datastore.to_dataset_dict[39m[34m(self, xarray_open_kwargs, xarray_combine_by_coords_kwargs, preprocess, storage_options, progressbar, aggregate, skip_on_error, **kwargs)[39m
+[32m    687[39m         [38;5;28;01mexcept[39;00m [38;5;167;01mException[39;00m [38;5;28;01mas[39;00m exc:
+[32m    688[39m             [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m skip_on_error:
+[32m--> [39m[32m689[39m                 [38;5;28;01mraise[39;00m exc
+[32m    690[39m [38;5;28mself[39m.datasets = [38;5;28mself[39m._create_derived_variables(datasets, skip_on_error)
+[32m    691[39m [38;5;28;01mreturn[39;00m [38;5;28mself[39m.datasets
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/intake_esm/core.py:685[39m, in [36mesm_datastore.to_dataset_dict[39m[34m(self, xarray_open_kwargs, xarray_combine_by_coords_kwargs, preprocess, storage_options, progressbar, aggregate, skip_on_error, **kwargs)[39m
+[32m    683[39m [38;5;28;01mfor[39;00m task [38;5;129;01min[39;00m gen:
+[32m    684[39m     [38;5;28;01mtry[39;00m:
+[32m--> [39m[32m685[39m         key, ds = [43mtask[49m[43m.[49m[43mresult[49m[43m([49m[43m)[49m
+[32m    686[39m         datasets[key] = ds
+[32m    687[39m     [38;5;28;01mexcept[39;00m [38;5;167;01mException[39;00m [38;5;28;01mas[39;00m exc:
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.13/concurrent/futures/_base.py:449[39m, in [36mFuture.result[39m[34m(self, timeout)[39m
+[32m    447[39m     [38;5;28;01mraise[39;00m CancelledError()
+[32m    448[39m [38;5;28;01melif[39;00m [38;5;28mself[39m._state == FINISHED:
+[32m--> [39m[32m449[39m     [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[43m.[49m[43m__get_result[49m[43m([49m[43m)[49m
+[32m    451[39m [38;5;28mself[39m._condition.wait(timeout)
+[32m    453[39m [38;5;28;01mif[39;00m [38;5;28mself[39m._state [38;5;129;01min[39;00m [CANCELLED, CANCELLED_AND_NOTIFIED]:
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.13/concurrent/futures/_base.py:401[39m, in [36mFuture.__get_result[39m[34m(self)[39m
+[32m    399[39m [38;5;28;01mif[39;00m [38;5;28mself[39m._exception [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m:
+[32m    400[39m     [38;5;28;01mtry[39;00m:
+[32m--> [39m[32m401[39m         [38;5;28;01mraise[39;00m [38;5;28mself[39m._exception
+[32m    402[39m     [38;5;28;01mfinally[39;00m:
+[32m    403[39m         [38;5;66;03m# Break a reference cycle with the exception in self._exception[39;00m
+[32m    404[39m         [38;5;28mself[39m = [38;5;28;01mNone[39;00m
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.13/concurrent/futures/thread.py:59[39m, in [36m_WorkItem.run[39m[34m(self)[39m
+[32m     56[39m     [38;5;28;01mreturn[39;00m
+[32m     58[39m [38;5;28;01mtry[39;00m:
+[32m---> [39m[32m59[39m     result = [38;5;28;43mself[39;49m[43m.[49m[43mfn[49m[43m([49m[43m*[49m[38;5;28;43mself[39;49m[43m.[49m[43margs[49m[43m,[49m[43m [49m[43m*[49m[43m*[49m[38;5;28;43mself[39;49m[43m.[49m[43mkwargs[49m[43m)[49m
+[32m     60[39m [38;5;28;01mexcept[39;00m [38;5;167;01mBaseException[39;00m [38;5;28;01mas[39;00m exc:
+[32m     61[39m     [38;5;28mself[39m.future.set_exception(exc)
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/intake_esm/core.py:836[39m, in [36m_load_source[39m[34m(key, source)[39m
+[32m    835[39m [38;5;28;01mdef[39;00m[38;5;250m [39m[34m_load_source[39m(key, source):
+[32m--> [39m[32m836[39m     [38;5;28;01mreturn[39;00m key, [43msource[49m[43m.[49m[43mto_dask[49m[43m([49m[43m)[49m
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/intake_esm/source.py:300[39m, in [36mESMDataSource.to_dask[39m[34m(self)[39m
+[32m    298[39m [38;5;28;01mdef[39;00m[38;5;250m [39m[34mto_dask[39m([38;5;28mself[39m):
+[32m    299[39m [38;5;250m    [39m[33;03m"""Return xarray object (which will have chunks)"""[39;00m
+[32m--> [39m[32m300[39m     [38;5;28;43mself[39;49m[43m.[49m[43m_load_metadata[49m[43m([49m[43m)[49m
+[32m    301[39m     [38;5;28;01mreturn[39;00m [38;5;28mself[39m._ds
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/intake/source/base.py:84[39m, in [36mDataSourceBase._load_metadata[39m[34m(self)[39m
+[32m     82[39m [38;5;250m[39m[33;03m"""load metadata only if needed"""[39;00m
+[32m     83[39m [38;5;28;01mif[39;00m [38;5;28mself[39m._schema [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
+[32m---> [39m[32m84[39m     [38;5;28mself[39m._schema = [38;5;28;43mself[39;49m[43m.[49m[43m_get_schema[49m[43m([49m[43m)[49m
+[32m     85[39m     [38;5;28mself[39m.dtype = [38;5;28mself[39m._schema.dtype
+[32m     86[39m     [38;5;28mself[39m.shape = [38;5;28mself[39m._schema.shape
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/intake_esm/source.py:220[39m, in [36mESMDataSource._get_schema[39m[34m(self)[39m
+[32m    218[39m [38;5;28;01mdef[39;00m[38;5;250m [39m[34m_get_schema[39m([38;5;28mself[39m) -> Schema:
+[32m    219[39m     [38;5;28;01mif[39;00m [38;5;28mself[39m._ds [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
+[32m--> [39m[32m220[39m         [38;5;28;43mself[39;49m[43m.[49m[43m_open_dataset[49m[43m([49m[43m)[49m
+[32m    221[39m         metadata: [38;5;28mdict[39m[[38;5;28mstr[39m, typing.Any] = {[33m'[39m[33mdims[39m[33m'[39m: {}, [33m'[39m[33mdata_vars[39m[33m'[39m: {}, [33m'[39m[33mcoords[39m[33m'[39m: ()}
+[32m    222[39m         [38;5;28mself[39m._schema = Schema(
+[32m    223[39m             datashape=[38;5;28;01mNone[39;00m,
+[32m    224[39m             dtype=[38;5;28;01mNone[39;00m,
+[32m   (...)[39m[32m    227[39m             extra_metadata=metadata,
+[32m    228[39m         )
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.13/site-packages/intake_esm/source.py:292[39m, in [36mESMDataSource._open_dataset[39m[34m(self)[39m
+[32m    289[39m     [38;5;28mself[39m._ds.attrs[OPTIONS[[33m'[39m[33mdataset_key[39m[33m'[39m]] = [38;5;28mself[39m.key
+[32m    291[39m [38;5;28;01mexcept[39;00m [38;5;167;01mException[39;00m [38;5;28;01mas[39;00m exc:
+[32m--> [39m[32m292[39m     [38;5;28;01mraise[39;00m ESMDataSourceError(
+[32m    293[39m         [33mf[39m[33m"""[39m[33mFailed to load dataset with key=[39m[33m'[39m[38;5;132;01m{[39;00m[38;5;28mself[39m.key[38;5;132;01m}[39;00m[33m'[39m
+[32m    294[39m [33m         You can use `cat[[39m[33m'[39m[38;5;132;01m{[39;00m[38;5;28mself[39m.key[38;5;132;01m}[39;00m[33m'[39m[33m].df` to inspect the assets/files for this key.[39m
+[32m    295[39m [33m         [39m[33m"""[39m
+[32m    296[39m     ) [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01mexc[39;00m
+
+[31mESMDataSourceError[39m: Failed to load dataset with key='an.sfc'
+                 You can use `cat['an.sfc'].df` to inspect the assets/files for this key.
+                 
