@@ -6,6 +6,7 @@ dependencies:
   - jupyter-book
   - jupyterlab
   - jupyter_server
+  - jupyterhub-singleuser
   - zarr
   - dask
   - xarray
