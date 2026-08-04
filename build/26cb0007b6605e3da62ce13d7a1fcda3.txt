@@ -1,0 +1,296 @@
+[31m---------------------------------------------------------------------------[39m
+[31mConnectionResetError[39m                      Traceback (most recent call last)
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.14/site-packages/aiohttp/connector.py:1316[39m, in [36mTCPConnector._wrap_create_connection[39m[34m(self, addr_infos, req, timeout, client_error, *args, **kwargs)[39m
+[32m   1315[39m             kwargs[[33m"[39m[33mssl_shutdown_timeout[39m[33m"[39m] = [38;5;28mself[39m._ssl_shutdown_timeout
+[32m-> [39m[32m1316[39m         [38;5;28;01mreturn[39;00m [38;5;28;01mawait[39;00m [38;5;28mself[39m._loop.create_connection(*args, **kwargs, sock=sock)
+[32m   1317[39m [38;5;28;01mexcept[39;00m cert_errors [38;5;28;01mas[39;00m exc:
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.14/asyncio/base_events.py:1198[39m, in [36mBaseEventLoop.create_connection[39m[34m(self, protocol_factory, host, port, ssl, family, proto, flags, sock, local_addr, server_hostname, ssl_handshake_timeout, ssl_shutdown_timeout, happy_eyeballs_delay, interleave, all_errors)[39m
+[32m   1195[39m         [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m(
+[32m   1196[39m             [33mf[39m[33m'[39m[33mA Stream Socket was expected, got [39m[38;5;132;01m{[39;00msock[38;5;132;01m!r}[39;00m[33m'[39m)
+[32m-> [39m[32m1198[39m transport, protocol = [38;5;28;01mawait[39;00m [38;5;28mself[39m._create_connection_transport(
+[32m   1199[39m     sock, protocol_factory, ssl, server_hostname,
+[32m   1200[39m     ssl_handshake_timeout=ssl_handshake_timeout,
+[32m   1201[39m     ssl_shutdown_timeout=ssl_shutdown_timeout)
+[32m   1202[39m [38;5;28;01mif[39;00m [38;5;28mself[39m._debug:
+[32m   1203[39m     [38;5;66;03m# Get the socket from the transport because SSL transport closes[39;00m
+[32m   1204[39m     [38;5;66;03m# the old socket and creates a new SSL socket[39;00m
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.14/asyncio/base_events.py:1231[39m, in [36mBaseEventLoop._create_connection_transport[39m[34m(self, sock, protocol_factory, ssl, server_hostname, server_side, ssl_handshake_timeout, ssl_shutdown_timeout)[39m
+[32m   1230[39m [38;5;28;01mtry[39;00m:
+[32m-> [39m[32m1231[39m     [38;5;28;01mawait[39;00m waiter
+[32m   1232[39m [38;5;28;01mexcept[39;00m:
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.14/asyncio/selector_events.py:987[39m, in [36m_SelectorSocketTransport._read_ready__get_buffer[39m[34m(self)[39m
+[32m    986[39m [38;5;28;01mtry[39;00m:
+[32m--> [39m[32m987[39m     nbytes = [30;43mself[39;49m[30;43m.[39;49m[30;43m_sock[39;49m[30;43m.[39;49m[30;43mrecv_into[39;49m[30;43m([39;49m[30;43mbuf[39;49m[30;43m)[39;49m
+[32m    988[39m [38;5;28;01mexcept[39;00m ([38;5;167;01mBlockingIOError[39;00m, [38;5;167;01mInterruptedError[39;00m):
+
+[31mConnectionResetError[39m: [Errno 104] Connection reset by peer
+
+The above exception was the direct cause of the following exception:
+
+[31mClientConnectorError[39m                      Traceback (most recent call last)
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.14/site-packages/zarr/storage.py:1446[39m, in [36mFSStore.__getitem__[39m[34m(self, key)[39m
+[32m   1445[39m [38;5;28;01mtry[39;00m:
+[32m-> [39m[32m1446[39m     [38;5;28;01mreturn[39;00m [30;43mself[39;49m[30;43m.[39;49m[30;43mmap[39;49m[30;43m[[39;49m[30;43mkey[39;49m[30;43m][39;49m
+[32m   1447[39m [38;5;28;01mexcept[39;00m [38;5;28mself[39m.exceptions [38;5;28;01mas[39;00m e:
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.14/site-packages/fsspec/mapping.py:155[39m, in [36mFSMap.__getitem__[39m[34m(self, key, default)[39m
+[32m    154[39m [38;5;28;01mtry[39;00m:
+[32m--> [39m[32m155[39m     result = [30;43mself[39;49m[30;43m.[39;49m[30;43mfs[39;49m[30;43m.[39;49m[30;43mcat[39;49m[30;43m([39;49m[30;43mk[39;49m[30;43m)[39;49m
+[32m    156[39m [38;5;28;01mexcept[39;00m [38;5;28mself[39m.missing_exceptions [38;5;28;01mas[39;00m exc:
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.14/site-packages/fsspec/asyn.py:118[39m, in [36msync_wrapper.<locals>.wrapper[39m[34m(*args, **kwargs)[39m
+[32m    117[39m [38;5;28mself[39m = obj [38;5;129;01mor[39;00m args[[32m0[39m]
+[32m--> [39m[32m118[39m [38;5;28;01mreturn[39;00m [30;43msync[39;49m[30;43m([39;49m[30;43mself[39;49m[30;43m.[39;49m[30;43mloop[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43mfunc[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43m*[39;49m[30;43margs[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43m*[39;49m[30;43m*[39;49m[30;43mkwargs[39;49m[30;43m)[39;49m
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.14/site-packages/fsspec/asyn.py:103[39m, in [36msync[39m[34m(loop, func, timeout, *args, **kwargs)[39m
+[32m    102[39m [38;5;28;01melif[39;00m [38;5;28misinstance[39m(return_result, [38;5;167;01mBaseException[39;00m):
+[32m--> [39m[32m103[39m     [38;5;28;01mraise[39;00m return_result
+[32m    104[39m [38;5;28;01melse[39;00m:
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.14/site-packages/fsspec/asyn.py:56[39m, in [36m_runner[39m[34m(event, coro, result, timeout)[39m
+[32m     55[39m [38;5;28;01mtry[39;00m:
+[32m---> [39m[32m56[39m     result[[32m0[39m] = [38;5;28;01mawait[39;00m coro
+[32m     57[39m [38;5;28;01mexcept[39;00m [38;5;167;01mException[39;00m [38;5;28;01mas[39;00m ex:
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.14/site-packages/fsspec/asyn.py:498[39m, in [36mAsyncFileSystem._cat[39m[34m(self, path, recursive, on_error, batch_size, **kwargs)[39m
+[32m    497[39m     [38;5;28;01mif[39;00m ex:
+[32m--> [39m[32m498[39m         [38;5;28;01mraise[39;00m ex
+[32m    499[39m [38;5;28;01mif[39;00m (
+[32m    500[39m     [38;5;28mlen[39m(paths) > [32m1[39m
+[32m    501[39m     [38;5;129;01mor[39;00m [38;5;28misinstance[39m(path, [38;5;28mlist[39m)
+[32m    502[39m     [38;5;129;01mor[39;00m paths[[32m0[39m] != [38;5;28mself[39m._strip_protocol(path)
+[32m    503[39m ):
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.14/site-packages/fsspec/asyn.py:260[39m, in [36m_run_coros_in_chunks.<locals>._run_coro[39m[34m(coro, i)[39m
+[32m    259[39m [38;5;28;01mtry[39;00m:
+[32m--> [39m[32m260[39m     [38;5;28;01mreturn[39;00m [38;5;28;01mawait[39;00m asyncio.wait_for(coro, timeout=timeout), i
+[32m    261[39m [38;5;28;01mexcept[39;00m [38;5;167;01mException[39;00m [38;5;28;01mas[39;00m e:
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.14/asyncio/tasks.py:488[39m, in [36mwait_for[39m[34m(fut, timeout)[39m
+[32m    487[39m [38;5;28;01masync[39;00m [38;5;28;01mwith[39;00m timeouts.timeout(timeout):
+[32m--> [39m[32m488[39m     [38;5;28;01mreturn[39;00m [38;5;28;01mawait[39;00m fut
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.14/site-packages/fsspec/implementations/http.py:248[39m, in [36mHTTPFileSystem._cat_file[39m[34m(self, url, start, end, **kwargs)[39m
+[32m    247[39m session = [38;5;28;01mawait[39;00m [38;5;28mself[39m.set_session()
+[32m--> [39m[32m248[39m [38;5;28;01masync[39;00m [38;5;28;01mwith[39;00m session.get([38;5;28mself[39m.encode_url(url), **kw) [38;5;28;01mas[39;00m r:
+[32m    249[39m     out = [38;5;28;01mawait[39;00m r.read()
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.14/site-packages/aiohttp/client.py:1693[39m, in [36m_BaseRequestContextManager.__aenter__[39m[34m(self)[39m
+[32m   1692[39m [38;5;28;01masync[39;00m [38;5;28;01mdef[39;00m[38;5;250m [39m[34m__aenter__[39m([38;5;28mself[39m) -> _RetType_co:
+[32m-> [39m[32m1693[39m     [38;5;28mself[39m._resp: _RetType_co = [38;5;28;01mawait[39;00m [38;5;28mself[39m._coro
+[32m   1694[39m     [38;5;28;01mreturn[39;00m [38;5;28;01mawait[39;00m [38;5;28mself[39m._resp.[34m__aenter__[39m()
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.14/site-packages/aiohttp/client.py:858[39m, in [36mClientSession._request[39m[34m(self, method, str_or_url, params, data, json, cookies, headers, skip_auto_headers, auth, allow_redirects, max_redirects, compress, chunked, expect100, raise_for_status, read_until_eof, proxy, proxy_auth, timeout, verify_ssl, fingerprint, ssl_context, ssl, server_hostname, proxy_headers, trace_request_ctx, read_bufsize, auto_decompress, max_line_size, max_field_size, max_headers, middlewares)[39m
+[32m    857[39m [38;5;28;01mtry[39;00m:
+[32m--> [39m[32m858[39m     resp = [38;5;28;01mawait[39;00m handler(req)
+[32m    859[39m [38;5;66;03m# Client connector errors should not be retried[39;00m
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.14/site-packages/aiohttp/client.py:812[39m, in [36mClientSession._request.<locals>._connect_and_send_request[39m[34m(req)[39m
+[32m    811[39m [38;5;28;01mtry[39;00m:
+[32m--> [39m[32m812[39m     conn = [38;5;28;01mawait[39;00m [38;5;28mself[39m._connector.connect(
+[32m    813[39m         req, traces=traces, timeout=real_timeout
+[32m    814[39m     )
+[32m    815[39m [38;5;28;01mexcept[39;00m asyncio.TimeoutError [38;5;28;01mas[39;00m exc:
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.14/site-packages/aiohttp/connector.py:657[39m, in [36mBaseConnector.connect[39m[34m(self, req, traces, timeout)[39m
+[32m    656[39m         [38;5;28;01mawait[39;00m trace.send_connection_create_start()
+[32m--> [39m[32m657[39m proto = [38;5;28;01mawait[39;00m [38;5;28mself[39m._create_connection(req, traces, timeout)
+[32m    658[39m [38;5;28;01mif[39;00m traces:
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.14/site-packages/aiohttp/connector.py:1242[39m, in [36mTCPConnector._create_connection[39m[34m(self, req, traces, timeout)[39m
+[32m   1241[39m [38;5;28;01melse[39;00m:
+[32m-> [39m[32m1242[39m     _, proto = [38;5;28;01mawait[39;00m [38;5;28mself[39m._create_direct_connection(req, traces, timeout)
+[32m   1244[39m [38;5;28;01mreturn[39;00m proto
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.14/site-packages/aiohttp/connector.py:1620[39m, in [36mTCPConnector._create_direct_connection[39m[34m(self, req, traces, timeout, client_error)[39m
+[32m   1619[39m [38;5;28;01massert[39;00m last_exc [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m
+[32m-> [39m[32m1620[39m [38;5;28;01mraise[39;00m last_exc
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.14/site-packages/aiohttp/connector.py:1589[39m, in [36mTCPConnector._create_direct_connection[39m[34m(self, req, traces, timeout, client_error)[39m
+[32m   1588[39m [38;5;28;01mtry[39;00m:
+[32m-> [39m[32m1589[39m     transp, proto = [38;5;28;01mawait[39;00m [38;5;28mself[39m._wrap_create_connection(
+[32m   1590[39m         [38;5;28mself[39m._factory,
+[32m   1591[39m         timeout=timeout,
+[32m   1592[39m         ssl=sslcontext,
+[32m   1593[39m         addr_infos=addr_infos,
+[32m   1594[39m         server_hostname=server_hostname,
+[32m   1595[39m         req=req,
+[32m   1596[39m         client_error=client_error,
+[32m   1597[39m     )
+[32m   1598[39m [38;5;28;01mexcept[39;00m (ClientConnectorError, asyncio.TimeoutError) [38;5;28;01mas[39;00m exc:
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.14/site-packages/aiohttp/connector.py:1324[39m, in [36mTCPConnector._wrap_create_connection[39m[34m(self, addr_infos, req, timeout, client_error, *args, **kwargs)[39m
+[32m   1323[39m     [38;5;28;01mraise[39;00m
+[32m-> [39m[32m1324[39m [38;5;28;01mraise[39;00m client_error(req.connection_key, exc) [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01mexc[39;00m
+
+[31mClientConnectorError[39m: Cannot connect to host data.gdex.ucar.edu:443 ssl:default [Connection reset by peer]
+
+The above exception was the direct cause of the following exception:
+
+[31mKeyError[39m                                  Traceback (most recent call last)
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.14/site-packages/xarray/backends/zarr.py:1949[39m, in [36m_get_open_params[39m[34m(store, mode, synchronizer, group, consolidated, consolidate_on_close, chunk_store, storage_options, zarr_version, use_zarr_fill_value_as_mask, zarr_format)[39m
+[32m   1948[39m [38;5;28;01mtry[39;00m:
+[32m-> [39m[32m1949[39m     zarr_root_group = [30;43mzarr[39;49m[30;43m.[39;49m[30;43mopen_consolidated[39;49m[30;43m([39;49m[30;43mstore[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43m*[39;49m[30;43m*[39;49m[30;43mopen_kwargs[39;49m[30;43m)[39;49m
+[32m   1950[39m [38;5;28;01mexcept[39;00m ([38;5;167;01mValueError[39;00m, [38;5;167;01mKeyError[39;00m):
+[32m   1951[39m     [38;5;66;03m# ValueError in zarr-python 3.x, KeyError in 2.x.[39;00m
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.14/site-packages/zarr/convenience.py:1362[39m, in [36mopen_consolidated[39m[34m(store, metadata_key, mode, **kwargs)[39m
+[32m   1361[39m [38;5;66;03m# setup metadata store[39;00m
+[32m-> [39m[32m1362[39m meta_store = [30;43mConsolidatedStoreClass[39;49m[30;43m([39;49m[30;43mstore[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43mmetadata_key[39;49m[30;43m=[39;49m[30;43mmetadata_key[39;49m[30;43m)[39;49m
+[32m   1364[39m [38;5;66;03m# pass through[39;00m
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.14/site-packages/zarr/storage.py:3045[39m, in [36mConsolidatedMetadataStore.__init__[39m[34m(self, store, metadata_key)[39m
+[32m   3044[39m [38;5;66;03m# retrieve consolidated metadata[39;00m
+[32m-> [39m[32m3045[39m meta = json_loads([30;43mself[39;49m[30;43m.[39;49m[30;43mstore[39;49m[30;43m[[39;49m[30;43mmetadata_key[39;49m[30;43m][39;49m)
+[32m   3047[39m [38;5;66;03m# check format of consolidated metadata[39;00m
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.14/site-packages/zarr/storage.py:1448[39m, in [36mFSStore.__getitem__[39m[34m(self, key)[39m
+[32m   1447[39m [38;5;28;01mexcept[39;00m [38;5;28mself[39m.exceptions [38;5;28;01mas[39;00m e:
+[32m-> [39m[32m1448[39m     [38;5;28;01mraise[39;00m [38;5;167;01mKeyError[39;00m(key) [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01me[39;00m
+
+[31mKeyError[39m: '.zmetadata'
+
+During handling of the above exception, another exception occurred:
+
+[31mGroupNotFoundError[39m                        Traceback (most recent call last)
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.14/site-packages/xarray/backends/zarr.py:1953[39m, in [36m_get_open_params[39m[34m(store, mode, synchronizer, group, consolidated, consolidate_on_close, chunk_store, storage_options, zarr_version, use_zarr_fill_value_as_mask, zarr_format)[39m
+[32m   1952[39m [38;5;28;01mtry[39;00m:
+[32m-> [39m[32m1953[39m     zarr_root_group = [30;43mzarr[39;49m[30;43m.[39;49m[30;43mopen_group[39;49m[30;43m([39;49m[30;43mstore[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43m*[39;49m[30;43m*[39;49m[30;43mopen_kwargs[39;49m[30;43m)[39;49m
+[32m   1954[39m     emit_user_level_warning(
+[32m   1955[39m         [33m"[39m[33mFailed to open Zarr store with consolidated metadata, [39m[33m"[39m
+[32m   1956[39m         [33m"[39m[33mbut successfully read with non-consolidated metadata. [39m[33m"[39m
+[32m   (...)[39m[32m   1966[39m         [38;5;167;01mRuntimeWarning[39;00m,
+[32m   1967[39m     )
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.14/site-packages/zarr/hierarchy.py:1578[39m, in [36mopen_group[39m[34m(store, mode, cache_attrs, synchronizer, path, chunk_store, storage_options, zarr_version, meta_array)[39m
+[32m   1577[39m             [38;5;28;01mraise[39;00m ContainsArrayError(path)
+[32m-> [39m[32m1578[39m         [38;5;28;01mraise[39;00m GroupNotFoundError(path)
+[32m   1580[39m [38;5;28;01melif[39;00m mode == [33m"[39m[33mw[39m[33m"[39m:
+
+[31mGroupNotFoundError[39m: group not found at path ''
+
+The above exception was the direct cause of the following exception:
+
+[31mFileNotFoundError[39m                         Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[20][39m[32m, line 1[39m
+[32m----> [39m[32m1[39m temp_2m_annual = xr.open_zarr(annual_means_https + [33m'temp_2m_annual_1940_2023.zarr'[39m).VAR_2T
+[32m      2[39m temp_2m_annual
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.14/site-packages/xarray/backends/zarr.py:1667[39m, in [36mopen_zarr[39m[34m(store, group, synchronizer, chunks, decode_cf, mask_and_scale, decode_times, concat_characters, decode_coords, drop_variables, consolidated, overwrite_encoded_chunks, chunk_store, storage_options, decode_timedelta, use_cftime, zarr_version, zarr_format, use_zarr_fill_value_as_mask, chunked_array_type, from_array_kwargs, create_default_indexes, **kwargs)[39m
+[32m   1653[39m     [38;5;28;01mraise[39;00m [38;5;167;01mTypeError[39;00m(
+[32m   1654[39m         [33m"[39m[33mopen_zarr() got unexpected keyword arguments [39m[33m"[39m + [33m"[39m[33m,[39m[33m"[39m.join(kwargs.keys())
+[32m   1655[39m     )
+[32m   1657[39m backend_kwargs = {
+[32m   1658[39m     [33m"[39m[33msynchronizer[39m[33m"[39m: synchronizer,
+[32m   1659[39m     [33m"[39m[33mconsolidated[39m[33m"[39m: consolidated,
+[32m   (...)[39m[32m   1664[39m     [33m"[39m[33mzarr_format[39m[33m"[39m: zarr_format,
+[32m   1665[39m }
+[32m-> [39m[32m1667[39m ds = [30;43mopen_dataset[39;49m[30;43m([39;49m
+[32m   1668[39m [30;43m    [39;49m[30;43mfilename_or_obj[39;49m[30;43m=[39;49m[30;43mstore[39;49m[30;43m,[39;49m
+[32m   1669[39m [30;43m    [39;49m[30;43mgroup[39;49m[30;43m=[39;49m[30;43mgroup[39;49m[30;43m,[39;49m
+[32m   1670[39m [30;43m    [39;49m[30;43mdecode_cf[39;49m[30;43m=[39;49m[30;43mdecode_cf[39;49m[30;43m,[39;49m
+[32m   1671[39m [30;43m    [39;49m[30;43mmask_and_scale[39;49m[30;43m=[39;49m[30;43mmask_and_scale[39;49m[30;43m,[39;49m
+[32m   1672[39m [30;43m    [39;49m[30;43mdecode_times[39;49m[30;43m=[39;49m[30;43mdecode_times[39;49m[30;43m,[39;49m
+[32m   1673[39m [30;43m    [39;49m[30;43mconcat_characters[39;49m[30;43m=[39;49m[30;43mconcat_characters[39;49m[30;43m,[39;49m
+[32m   1674[39m [30;43m    [39;49m[30;43mdecode_coords[39;49m[30;43m=[39;49m[30;43mdecode_coords[39;49m[30;43m,[39;49m
+[32m   1675[39m [30;43m    [39;49m[30;43mengine[39;49m[30;43m=[39;49m[30;43m"[39;49m[30;43mzarr[39;49m[30;43m"[39;49m[30;43m,[39;49m
+[32m   1676[39m [30;43m    [39;49m[30;43mchunks[39;49m[30;43m=[39;49m[30;43mchunks[39;49m[30;43m,[39;49m
+[32m   1677[39m [30;43m    [39;49m[30;43mdrop_variables[39;49m[30;43m=[39;49m[30;43mdrop_variables[39;49m[30;43m,[39;49m
+[32m   1678[39m [30;43m    [39;49m[30;43mcreate_default_indexes[39;49m[30;43m=[39;49m[30;43mcreate_default_indexes[39;49m[30;43m,[39;49m
+[32m   1679[39m [30;43m    [39;49m[30;43mchunked_array_type[39;49m[30;43m=[39;49m[30;43mchunked_array_type[39;49m[30;43m,[39;49m
+[32m   1680[39m [30;43m    [39;49m[30;43mfrom_array_kwargs[39;49m[30;43m=[39;49m[30;43mfrom_array_kwargs[39;49m[30;43m,[39;49m
+[32m   1681[39m [30;43m    [39;49m[30;43mbackend_kwargs[39;49m[30;43m=[39;49m[30;43mbackend_kwargs[39;49m[30;43m,[39;49m
+[32m   1682[39m [30;43m    [39;49m[30;43mdecode_timedelta[39;49m[30;43m=[39;49m[30;43mdecode_timedelta[39;49m[30;43m,[39;49m
+[32m   1683[39m [30;43m    [39;49m[30;43muse_cftime[39;49m[30;43m=[39;49m[30;43muse_cftime[39;49m[30;43m,[39;49m
+[32m   1684[39m [30;43m    [39;49m[30;43mzarr_version[39;49m[30;43m=[39;49m[30;43mzarr_version[39;49m[30;43m,[39;49m
+[32m   1685[39m [30;43m    [39;49m[30;43muse_zarr_fill_value_as_mask[39;49m[30;43m=[39;49m[30;43muse_zarr_fill_value_as_mask[39;49m[30;43m,[39;49m
+[32m   1686[39m [30;43m[39;49m[30;43m)[39;49m
+[32m   1687[39m [38;5;28;01mreturn[39;00m ds
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.14/site-packages/xarray/backends/api.py:613[39m, in [36mopen_dataset[39m[34m(filename_or_obj, engine, chunks, cache, decode_cf, mask_and_scale, decode_times, decode_timedelta, use_cftime, concat_characters, decode_coords, drop_variables, create_default_indexes, inline_array, chunked_array_type, from_array_kwargs, backend_kwargs, **kwargs)[39m
+[32m    601[39m decoders = _resolve_decoders_kwargs(
+[32m    602[39m     decode_cf,
+[32m    603[39m     open_backend_dataset_parameters=backend.open_dataset_parameters,
+[32m   (...)[39m[32m    609[39m     decode_coords=decode_coords,
+[32m    610[39m )
+[32m    612[39m overwrite_encoded_chunks = kwargs.pop([33m"[39m[33moverwrite_encoded_chunks[39m[33m"[39m, [38;5;28;01mNone[39;00m)
+[32m--> [39m[32m613[39m backend_ds = [30;43mbackend[39;49m[30;43m.[39;49m[30;43mopen_dataset[39;49m[30;43m([39;49m
+[32m    614[39m [30;43m    [39;49m[30;43mfilename_or_obj[39;49m[30;43m,[39;49m
+[32m    615[39m [30;43m    [39;49m[30;43mdrop_variables[39;49m[30;43m=[39;49m[30;43mdrop_variables[39;49m[30;43m,[39;49m
+[32m    616[39m [30;43m    [39;49m[30;43m*[39;49m[30;43m*[39;49m[30;43mdecoders[39;49m[30;43m,[39;49m
+[32m    617[39m [30;43m    [39;49m[30;43m*[39;49m[30;43m*[39;49m[30;43mkwargs[39;49m[30;43m,[39;49m
+[32m    618[39m [30;43m[39;49m[30;43m)[39;49m
+[32m    619[39m ds = _dataset_from_backend_dataset(
+[32m    620[39m     backend_ds,
+[32m    621[39m     filename_or_obj,
+[32m   (...)[39m[32m    632[39m     **kwargs,
+[32m    633[39m )
+[32m    634[39m [38;5;28;01mreturn[39;00m ds
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.14/site-packages/xarray/backends/zarr.py:1741[39m, in [36mZarrBackendEntrypoint.open_dataset[39m[34m(self, filename_or_obj, mask_and_scale, decode_times, concat_characters, decode_coords, drop_variables, use_cftime, decode_timedelta, group, mode, synchronizer, consolidated, chunk_store, storage_options, zarr_version, zarr_format, store, engine, use_zarr_fill_value_as_mask, cache_members)[39m
+[32m   1739[39m filename_or_obj = _normalize_path(filename_or_obj)
+[32m   1740[39m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m store:
+[32m-> [39m[32m1741[39m     store = [30;43mZarrStore[39;49m[30;43m.[39;49m[30;43mopen_group[39;49m[30;43m([39;49m
+[32m   1742[39m [30;43m        [39;49m[30;43mfilename_or_obj[39;49m[30;43m,[39;49m
+[32m   1743[39m [30;43m        [39;49m[30;43mgroup[39;49m[30;43m=[39;49m[30;43mgroup[39;49m[30;43m,[39;49m
+[32m   1744[39m [30;43m        [39;49m[30;43mmode[39;49m[30;43m=[39;49m[30;43mmode[39;49m[30;43m,[39;49m
+[32m   1745[39m [30;43m        [39;49m[30;43msynchronizer[39;49m[30;43m=[39;49m[30;43msynchronizer[39;49m[30;43m,[39;49m
+[32m   1746[39m [30;43m        [39;49m[30;43mconsolidated[39;49m[30;43m=[39;49m[30;43mconsolidated[39;49m[30;43m,[39;49m
+[32m   1747[39m [30;43m        [39;49m[30;43mconsolidate_on_close[39;49m[30;43m=[39;49m[30;43;01mFalse[39;49;00m[30;43m,[39;49m
+[32m   1748[39m [30;43m        [39;49m[30;43mchunk_store[39;49m[30;43m=[39;49m[30;43mchunk_store[39;49m[30;43m,[39;49m
+[32m   1749[39m [30;43m        [39;49m[30;43mstorage_options[39;49m[30;43m=[39;49m[30;43mstorage_options[39;49m[30;43m,[39;49m
+[32m   1750[39m [30;43m        [39;49m[30;43mzarr_version[39;49m[30;43m=[39;49m[30;43mzarr_version[39;49m[30;43m,[39;49m
+[32m   1751[39m [30;43m        [39;49m[30;43muse_zarr_fill_value_as_mask[39;49m[30;43m=[39;49m[30;43;01mNone[39;49;00m[30;43m,[39;49m
+[32m   1752[39m [30;43m        [39;49m[30;43mzarr_format[39;49m[30;43m=[39;49m[30;43mzarr_format[39;49m[30;43m,[39;49m
+[32m   1753[39m [30;43m        [39;49m[30;43mcache_members[39;49m[30;43m=[39;49m[30;43mcache_members[39;49m[30;43m,[39;49m
+[32m   1754[39m [30;43m    [39;49m[30;43m)[39;49m
+[32m   1756[39m store_entrypoint = StoreBackendEntrypoint()
+[32m   1757[39m [38;5;28;01mwith[39;00m close_on_error(store):
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.14/site-packages/xarray/backends/zarr.py:771[39m, in [36mZarrStore.open_group[39m[34m(cls, store, mode, synchronizer, group, consolidated, consolidate_on_close, chunk_store, storage_options, append_dim, write_region, safe_chunks, align_chunks, zarr_version, zarr_format, use_zarr_fill_value_as_mask, write_empty, cache_members)[39m
+[32m    745[39m [38;5;129m@classmethod[39m
+[32m    746[39m [38;5;28;01mdef[39;00m[38;5;250m [39m[34mopen_group[39m(
+[32m    747[39m     [38;5;28mcls[39m,
+[32m   (...)[39m[32m    764[39m     cache_members: [38;5;28mbool[39m = [38;5;28;01mTrue[39;00m,
+[32m    765[39m ):
+[32m    766[39m     (
+[32m    767[39m         zarr_group,
+[32m    768[39m         consolidate_on_close,
+[32m    769[39m         close_store_on_close,
+[32m    770[39m         use_zarr_fill_value_as_mask,
+[32m--> [39m[32m771[39m     ) = [30;43m_get_open_params[39;49m[30;43m([39;49m
+[32m    772[39m [30;43m        [39;49m[30;43mstore[39;49m[30;43m=[39;49m[30;43mstore[39;49m[30;43m,[39;49m
+[32m    773[39m [30;43m        [39;49m[30;43mmode[39;49m[30;43m=[39;49m[30;43mmode[39;49m[30;43m,[39;49m
+[32m    774[39m [30;43m        [39;49m[30;43msynchronizer[39;49m[30;43m=[39;49m[30;43msynchronizer[39;49m[30;43m,[39;49m
+[32m    775[39m [30;43m        [39;49m[30;43mgroup[39;49m[30;43m=[39;49m[30;43mgroup[39;49m[30;43m,[39;49m
+[32m    776[39m [30;43m        [39;49m[30;43mconsolidated[39;49m[30;43m=[39;49m[30;43mconsolidated[39;49m[30;43m,[39;49m
+[32m    777[39m [30;43m        [39;49m[30;43mconsolidate_on_close[39;49m[30;43m=[39;49m[30;43mconsolidate_on_close[39;49m[30;43m,[39;49m
+[32m    778[39m [30;43m        [39;49m[30;43mchunk_store[39;49m[30;43m=[39;49m[30;43mchunk_store[39;49m[30;43m,[39;49m
+[32m    779[39m [30;43m        [39;49m[30;43mstorage_options[39;49m[30;43m=[39;49m[30;43mstorage_options[39;49m[30;43m,[39;49m
+[32m    780[39m [30;43m        [39;49m[30;43mzarr_version[39;49m[30;43m=[39;49m[30;43mzarr_version[39;49m[30;43m,[39;49m
+[32m    781[39m [30;43m        [39;49m[30;43muse_zarr_fill_value_as_mask[39;49m[30;43m=[39;49m[30;43muse_zarr_fill_value_as_mask[39;49m[30;43m,[39;49m
+[32m    782[39m [30;43m        [39;49m[30;43mzarr_format[39;49m[30;43m=[39;49m[30;43mzarr_format[39;49m[30;43m,[39;49m
+[32m    783[39m [30;43m    [39;49m[30;43m)[39;49m
+[32m    785[39m     [38;5;28;01mreturn[39;00m [38;5;28mcls[39m(
+[32m    786[39m         zarr_group,
+[32m    787[39m         mode,
+[32m   (...)[39m[32m    796[39m         cache_members=cache_members,
+[32m    797[39m     )
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.14/site-packages/xarray/backends/zarr.py:1969[39m, in [36m_get_open_params[39m[34m(store, mode, synchronizer, group, consolidated, consolidate_on_close, chunk_store, storage_options, zarr_version, use_zarr_fill_value_as_mask, zarr_format)[39m
+[32m   1954[39m             emit_user_level_warning(
+[32m   1955[39m                 [33m"[39m[33mFailed to open Zarr store with consolidated metadata, [39m[33m"[39m
+[32m   1956[39m                 [33m"[39m[33mbut successfully read with non-consolidated metadata. [39m[33m"[39m
+[32m   (...)[39m[32m   1966[39m                 [38;5;167;01mRuntimeWarning[39;00m,
+[32m   1967[39m             )
+[32m   1968[39m         [38;5;28;01mexcept[39;00m missing_exc [38;5;28;01mas[39;00m err:
+[32m-> [39m[32m1969[39m             [38;5;28;01mraise[39;00m [38;5;167;01mFileNotFoundError[39;00m(
+[32m   1970[39m                 [33mf[39m[33m"[39m[33mNo such file or directory: [39m[33m'[39m[38;5;132;01m{[39;00mstore[38;5;132;01m}[39;00m[33m'[39m[33m"[39m
+[32m   1971[39m             ) [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01merr[39;00m
+[32m   1973[39m [38;5;66;03m# but the user should still receive a DataTree whose root is the group they asked for[39;00m
+[32m   1974[39m [38;5;28;01mif[39;00m group [38;5;129;01mand[39;00m group != [33m"[39m[33m/[39m[33m"[39m:
+
+[31mFileNotFoundError[39m: No such file or directory: 'https://data.gdex.ucar.edu/special_projects/pythia_2024/annual_means/temp_2m_annual_1940_2023.zarr'
