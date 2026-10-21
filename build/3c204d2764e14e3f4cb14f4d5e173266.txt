@@ -1,5 +1,5 @@
 [31m---------------------------------------------------------------------------[39m
-[31mSSLCertVerificationError[39m                  Traceback (most recent call last)
+[31mConnectionResetError[39m                      Traceback (most recent call last)
 [36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.14/site-packages/aiohttp/connector.py:1337[39m, in [36mTCPConnector._wrap_create_connection[39m[34m(self, addr_infos, req, timeout, client_error, *args, **kwargs)[39m
 [32m   1336[39m             kwargs[[33m"[39m[33mssl_shutdown_timeout[39m[33m"[39m] = [38;5;28mself[39m._ssl_shutdown_timeout
 [32m-> [39m[32m1337[39m         [38;5;28;01mreturn[39;00m [38;5;28;01mawait[39;00m [38;5;28mself[39m._loop.create_connection(*args, **kwargs, sock=sock)
@@ -21,25 +21,16 @@
 [32m-> [39m[32m1237[39m     [38;5;28;01mawait[39;00m waiter
 [32m   1238[39m [38;5;28;01mexcept[39;00m:
 
-[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.14/asyncio/sslproto.py:581[39m, in [36mSSLProtocol._on_handshake_complete[39m[34m(self, handshake_exc)[39m
-[32m    580[39m [38;5;28;01melse[39;00m:
-[32m--> [39m[32m581[39m     [38;5;28;01mraise[39;00m handshake_exc
-[32m    583[39m peercert = sslobj.getpeercert()
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.14/asyncio/selector_events.py:986[39m, in [36m_SelectorSocketTransport._read_ready__get_buffer[39m[34m(self)[39m
+[32m    985[39m [38;5;28;01mtry[39;00m:
+[32m--> [39m[32m986[39m     nbytes = [30;43mself[39;49m[30;43m.[39;49m[30;43m_sock[39;49m[30;43m.[39;49m[30;43mrecv_into[39;49m[30;43m([39;49m[30;43mbuf[39;49m[30;43m)[39;49m
+[32m    987[39m [38;5;28;01mexcept[39;00m ([38;5;167;01mBlockingIOError[39;00m, [38;5;167;01mInterruptedError[39;00m):
 
-[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.14/asyncio/sslproto.py:563[39m, in [36mSSLProtocol._do_handshake[39m[34m(self)[39m
-[32m    562[39m [38;5;28;01mtry[39;00m:
-[32m--> [39m[32m563[39m     [30;43mself[39;49m[30;43m.[39;49m[30;43m_sslobj[39;49m[30;43m.[39;49m[30;43mdo_handshake[39;49m[30;43m([39;49m[30;43m)[39;49m
-[32m    564[39m [38;5;28;01mexcept[39;00m SSLAgainErrors:
-
-[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.14/ssl.py:969[39m, in [36mSSLObject.do_handshake[39m[34m(self)[39m
-[32m    968[39m [38;5;250m[39m[33;03m"""Start the SSL/TLS handshake."""[39;00m
-[32m--> [39m[32m969[39m [30;43mself[39;49m[30;43m.[39;49m[30;43m_sslobj[39;49m[30;43m.[39;49m[30;43mdo_handshake[39;49m[30;43m([39;49m[30;43m)[39;49m
-
-[31mSSLCertVerificationError[39m: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1082)
+[31mConnectionResetError[39m: [Errno 104] Connection reset by peer
 
 The above exception was the direct cause of the following exception:
 
-[31mClientConnectorCertificateError[39m           Traceback (most recent call last)
+[31mClientConnectorError[39m                      Traceback (most recent call last)
 [36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.14/site-packages/zarr/storage.py:1446[39m, in [36mFSStore.__getitem__[39m[34m(self, key)[39m
 [32m   1445[39m [38;5;28;01mtry[39;00m:
 [32m-> [39m[32m1446[39m     [38;5;28;01mreturn[39;00m [30;43mself[39;49m[30;43m.[39;49m[30;43mmap[39;49m[30;43m[[39;49m[30;43mkey[39;49m[30;43m][39;49m
@@ -131,12 +122,11 @@ The above exception was the direct cause of the following exception:
 [32m   1618[39m     )
 [32m   1619[39m [38;5;28;01mexcept[39;00m (ClientConnectorError, asyncio.TimeoutError) [38;5;28;01mas[39;00m exc:
 
-[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.14/site-packages/aiohttp/connector.py:1339[39m, in [36mTCPConnector._wrap_create_connection[39m[34m(self, addr_infos, req, timeout, client_error, *args, **kwargs)[39m
-[32m   1338[39m [38;5;28;01mexcept[39;00m cert_errors [38;5;28;01mas[39;00m exc:
-[32m-> [39m[32m1339[39m     [38;5;28;01mraise[39;00m ClientConnectorCertificateError(req.connection_key, exc) [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01mexc[39;00m
-[32m   1340[39m [38;5;28;01mexcept[39;00m ssl_errors [38;5;28;01mas[39;00m exc:
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.14/site-packages/aiohttp/connector.py:1345[39m, in [36mTCPConnector._wrap_create_connection[39m[34m(self, addr_infos, req, timeout, client_error, *args, **kwargs)[39m
+[32m   1344[39m     [38;5;28;01mraise[39;00m
+[32m-> [39m[32m1345[39m [38;5;28;01mraise[39;00m client_error(req.connection_key, exc) [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01mexc[39;00m
 
-[31mClientConnectorCertificateError[39m: Cannot connect to host data.gdex.ucar.edu:443 ssl:True [SSLCertVerificationError: (1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1082)')]
+[31mClientConnectorError[39m: Cannot connect to host data.gdex.ucar.edu:443 ssl:default [Connection reset by peer]
 
 The above exception was the direct cause of the following exception:
 
@@ -185,10 +175,40 @@ During handling of the above exception, another exception occurred:
 The above exception was the direct cause of the following exception:
 
 [31mFileNotFoundError[39m                         Traceback (most recent call last)
-[36mCell[39m[36m [39m[32mIn[2][39m[32m, line 2[39m
-[32m      1[39m annual_means_https= [33m'https://data.gdex.ucar.edu/special_projects/pythia_2024/annual_means/'[39m
-[32m----> [39m[32m2[39m xrds = xr.open_dataset(annual_means_https + [33m"temp_2m_annual_1940_2023.zarr"[39m, engine=[33m"zarr"[39m)
-[32m      3[39m xrds
+[36mCell[39m[36m [39m[32mIn[10][39m[32m, line 1[39m
+[32m----> [39m[32m1[39m temp_2m_annual = xr.open_zarr(annual_means_https + [33m'temp_2m_annual_1940_2023.zarr'[39m).VAR_2T
+[32m      2[39m temp_2m_annual
+
+[36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.14/site-packages/xarray/backends/zarr.py:1667[39m, in [36mopen_zarr[39m[34m(store, group, synchronizer, chunks, decode_cf, mask_and_scale, decode_times, concat_characters, decode_coords, drop_variables, consolidated, overwrite_encoded_chunks, chunk_store, storage_options, decode_timedelta, use_cftime, zarr_version, zarr_format, use_zarr_fill_value_as_mask, chunked_array_type, from_array_kwargs, create_default_indexes, **kwargs)[39m
+[32m   1653[39m     [38;5;28;01mraise[39;00m [38;5;167;01mTypeError[39;00m(
+[32m   1654[39m         [33m"[39m[33mopen_zarr() got unexpected keyword arguments [39m[33m"[39m + [33m"[39m[33m,[39m[33m"[39m.join(kwargs.keys())
+[32m   1655[39m     )
+[32m   1657[39m backend_kwargs = {
+[32m   1658[39m     [33m"[39m[33msynchronizer[39m[33m"[39m: synchronizer,
+[32m   1659[39m     [33m"[39m[33mconsolidated[39m[33m"[39m: consolidated,
+[32m   (...)[39m[32m   1664[39m     [33m"[39m[33mzarr_format[39m[33m"[39m: zarr_format,
+[32m   1665[39m }
+[32m-> [39m[32m1667[39m ds = [30;43mopen_dataset[39;49m[30;43m([39;49m
+[32m   1668[39m [30;43m    [39;49m[30;43mfilename_or_obj[39;49m[30;43m=[39;49m[30;43mstore[39;49m[30;43m,[39;49m
+[32m   1669[39m [30;43m    [39;49m[30;43mgroup[39;49m[30;43m=[39;49m[30;43mgroup[39;49m[30;43m,[39;49m
+[32m   1670[39m [30;43m    [39;49m[30;43mdecode_cf[39;49m[30;43m=[39;49m[30;43mdecode_cf[39;49m[30;43m,[39;49m
+[32m   1671[39m [30;43m    [39;49m[30;43mmask_and_scale[39;49m[30;43m=[39;49m[30;43mmask_and_scale[39;49m[30;43m,[39;49m
+[32m   1672[39m [30;43m    [39;49m[30;43mdecode_times[39;49m[30;43m=[39;49m[30;43mdecode_times[39;49m[30;43m,[39;49m
+[32m   1673[39m [30;43m    [39;49m[30;43mconcat_characters[39;49m[30;43m=[39;49m[30;43mconcat_characters[39;49m[30;43m,[39;49m
+[32m   1674[39m [30;43m    [39;49m[30;43mdecode_coords[39;49m[30;43m=[39;49m[30;43mdecode_coords[39;49m[30;43m,[39;49m
+[32m   1675[39m [30;43m    [39;49m[30;43mengine[39;49m[30;43m=[39;49m[30;43m"[39;49m[30;43mzarr[39;49m[30;43m"[39;49m[30;43m,[39;49m
+[32m   1676[39m [30;43m    [39;49m[30;43mchunks[39;49m[30;43m=[39;49m[30;43mchunks[39;49m[30;43m,[39;49m
+[32m   1677[39m [30;43m    [39;49m[30;43mdrop_variables[39;49m[30;43m=[39;49m[30;43mdrop_variables[39;49m[30;43m,[39;49m
+[32m   1678[39m [30;43m    [39;49m[30;43mcreate_default_indexes[39;49m[30;43m=[39;49m[30;43mcreate_default_indexes[39;49m[30;43m,[39;49m
+[32m   1679[39m [30;43m    [39;49m[30;43mchunked_array_type[39;49m[30;43m=[39;49m[30;43mchunked_array_type[39;49m[30;43m,[39;49m
+[32m   1680[39m [30;43m    [39;49m[30;43mfrom_array_kwargs[39;49m[30;43m=[39;49m[30;43mfrom_array_kwargs[39;49m[30;43m,[39;49m
+[32m   1681[39m [30;43m    [39;49m[30;43mbackend_kwargs[39;49m[30;43m=[39;49m[30;43mbackend_kwargs[39;49m[30;43m,[39;49m
+[32m   1682[39m [30;43m    [39;49m[30;43mdecode_timedelta[39;49m[30;43m=[39;49m[30;43mdecode_timedelta[39;49m[30;43m,[39;49m
+[32m   1683[39m [30;43m    [39;49m[30;43muse_cftime[39;49m[30;43m=[39;49m[30;43muse_cftime[39;49m[30;43m,[39;49m
+[32m   1684[39m [30;43m    [39;49m[30;43mzarr_version[39;49m[30;43m=[39;49m[30;43mzarr_version[39;49m[30;43m,[39;49m
+[32m   1685[39m [30;43m    [39;49m[30;43muse_zarr_fill_value_as_mask[39;49m[30;43m=[39;49m[30;43muse_zarr_fill_value_as_mask[39;49m[30;43m,[39;49m
+[32m   1686[39m [30;43m[39;49m[30;43m)[39;49m
+[32m   1687[39m [38;5;28;01mreturn[39;00m ds
 
 [36mFile [39m[32m~/micromamba/envs/ERA5_interactive/lib/python3.14/site-packages/xarray/backends/api.py:613[39m, in [36mopen_dataset[39m[34m(filename_or_obj, engine, chunks, cache, decode_cf, mask_and_scale, decode_times, decode_timedelta, use_cftime, concat_characters, decode_coords, drop_variables, create_default_indexes, inline_array, chunked_array_type, from_array_kwargs, backend_kwargs, **kwargs)[39m
 [32m    601[39m decoders = _resolve_decoders_kwargs(
