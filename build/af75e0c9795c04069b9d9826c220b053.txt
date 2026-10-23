@@ -175,7 +175,7 @@ During handling of the above exception, another exception occurred:
 The above exception was the direct cause of the following exception:
 
 [31mFileNotFoundError[39m                         Traceback (most recent call last)
-[36mCell[39m[36m [39m[32mIn[10][39m[32m, line 1[39m
+[36mCell[39m[36m [39m[32mIn[20][39m[32m, line 1[39m
 [32m----> [39m[32m1[39m temp_2m_annual = xr.open_zarr(annual_means_https + [33m'temp_2m_annual_1940_2023.zarr'[39m).VAR_2T
 [32m      2[39m temp_2m_annual
 
